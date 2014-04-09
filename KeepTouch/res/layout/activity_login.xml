@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.keeptouch.keeptouch.login.LoginActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <EditText
+        android:id="@+id/textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textEmailAddress"
+        android:layout_below="@+id/textEmailAddress"
+        android:layout_marginTop="37dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/textEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="33dp"
+        android:layout_marginTop="103dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="tzlilg21@gmail.com" />
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textEmailAddress"
+        android:layout_alignBottom="@+id/textEmailAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="31dp"
+        android:text="Email" />
+
+    <TextView
+        android:id="@+id/TextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textEmail"
+        android:layout_alignTop="@+id/textPassword"
+        android:text="Password" />
+
+    <TextView
+        android:id="@+id/textSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textPassword"
+        android:layout_below="@+id/buttonConnectWithFaceBook"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="38dp"
+        android:text="Sign up" />
+
+    <Button
+        android:id="@+id/buttonConnectWithFaceBook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextPassword"
+        android:layout_below="@+id/textPassword"
+        android:layout_marginTop="30dp"
+        android:layout_weight=".70"
+        android:text="Connect with facebook" />
+
+</RelativeLayout>
+
