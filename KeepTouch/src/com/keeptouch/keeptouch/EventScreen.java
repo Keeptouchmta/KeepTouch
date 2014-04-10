@@ -30,6 +30,7 @@ public class EventScreen extends MasterScreen {
 	float actualDescriptionHeight = 100.0f;
 	float initialDescriptionHeight = 60.0f;
 	float actualDescriptionWidth = 0.0f;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -113,13 +114,12 @@ public class EventScreen extends MasterScreen {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(thisActivity, AddEditEventScreen.class);
-                startActivity(intent);   
+                startActivity(intent);
 			}
 		});
-        
 	}
 
-	public void expand(final View v, final View button) {
+    public void expand(final View v, final View button) {
 		ResizeAnimation a = new ResizeAnimation(v, actualDescriptionWidth, initialDescriptionHeight, actualDescriptionWidth, 100.0f);
 		AnimationListener animListener = new AnimationListener() {
 	    	public void onAnimationStart(Animation anim)

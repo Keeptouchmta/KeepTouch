@@ -4,67 +4,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.keeptouch.keeptouch.login.LoginActivity"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame"
+    android:clickable="true">
 
     <EditText
         android:id="@+id/textPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textEmailAddress"
-        android:layout_below="@+id/textEmailAddress"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_below="@+id/textEmailAddress"
+        android:layout_alignLeft="@+id/textEmailAddress"
+        android:layout_alignStart="@+id/textEmailAddress" />
 
     <EditText
         android:id="@+id/textEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="33dp"
-        android:layout_marginTop="103dp"
+        android:layout_marginTop="115dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="tzlilg21@gmail.com" />
+        android:text="tzlilg21@gmail.com"
+        android:layout_marginLeft="30dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/TextPassword" />
 
     <TextView
         android:id="@+id/textEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textEmailAddress"
-        android:layout_alignBottom="@+id/textEmailAddress"
+        android:layout_marginLeft="58dp"
+        android:text="Email"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/textEmailAddress"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="31dp"
-        android:text="Email" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/TextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textEmail"
+        android:text="Password"
+        android:textSize="20dp"
         android:layout_alignTop="@+id/textPassword"
-        android:text="Password" />
+        android:layout_alignLeft="@+id/textEmail"
+        android:layout_alignStart="@+id/textEmail" />
 
-    <TextView
-        android:id="@+id/textSignUp"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textPassword"
-        android:layout_below="@+id/buttonConnectWithFaceBook"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="38dp"
-        android:text="Sign up" />
+        android:id="@+id/imageButtonLoginWithFacebok"
+        android:maxWidth="10dp"
+        android:background="@drawable/active_600"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/imageButtonLogin"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/buttonConnectWithFaceBook"
-        android:layout_width="0dp"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Sign Up"
+        android:id="@+id/textSignUp"
+        android:layout_below="@+id/imageButtonLoginWithFacebok"
+        android:layout_alignRight="@+id/textPassword"
+        android:layout_alignEnd="@+id/textPassword"
+        android:layout_marginTop="37dp"
+        android:textSize="15dp"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonLogin"
+        android:clickable="true"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/TextPassword"
-        android:layout_below="@+id/textPassword"
-        android:layout_marginTop="30dp"
-        android:layout_weight=".70"
-        android:text="Connect with facebook" />
+        android:layout_alignStart="@+id/TextPassword"
+        android:layout_alignRight="@+id/TextPassword"
+        android:layout_alignEnd="@+id/TextPassword" />
 
 </RelativeLayout>
 
