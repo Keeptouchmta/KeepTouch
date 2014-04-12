@@ -6,9 +6,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="zvalidations_not_positive_integer">Field should be positive integer</string>
+    <string name="email_not_match">Emails don\'t match</string>
     <string name="zvalidations_empty">Field could not be empty</string>
     <string name="zvalidations_not_in_range">Field should be between %1$d and %2$d</string>
     <string name="zvalidations_not_email">Value is not valid email address</string>
+    <string name="zvalidations_already_registered">That email is already registered.Did
+        you mean to log in?</string>
     <string name="menu_crouton_validation_failed_renderer">Crouton</string>
+    <string name="signup"><![CDATA[<u>Sign up</u>]]></string>
 
 </resources>

@@ -33,5 +33,4 @@ import com.keeptouch.keeptouch.ua.org.zasadnyy.zvalidations.ValidationResult;
 public interface Validation {
 
     ValidationResult validate(Field field);
-
 }
