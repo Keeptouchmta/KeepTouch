@@ -3,6 +3,7 @@
 
     <string name="app_name">Keep Touch</string>
     <string name="action_settings">Settings</string>
+    <string name="add_new_event">Add new event</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="zvalidations_not_positive_integer">Field should be positive integer</string>
@@ -14,5 +15,10 @@
         you mean to log in?</string>
     <string name="menu_crouton_validation_failed_renderer">Crouton</string>
     <string name="signup"><![CDATA[<u>Sign up</u>]]></string>
+    <string name="edit_event">Edit event</string>
+    <string name="error_dialog_title">Error</string>
+    <string name="error_dialog_button_text">OK</string>
+    <string name="action_friend_picker">Select friends</string>
+    <string name="button_done">DONE</string>
 
 </resources>

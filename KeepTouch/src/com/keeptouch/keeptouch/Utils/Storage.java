@@ -3,10 +3,14 @@ package com.keeptouch.keeptouch.Utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+
 /**
  * Created by tgoldberg on 4/11/2014.
  */
 public class Storage {
+    public static final String ADD_EVENT = "addEvent" ;
+    public static final String EDIT_AVENT = "editEvent";
     public static boolean COMMIT = true;
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String USER_ID = "userId";
@@ -16,11 +20,13 @@ public class Storage {
     public static final String CANNOT_LOGIN = "cannotLogin";
     public static final String ACCESS_TOKEN = "access_token";
     public static final String ACCESS_EXPIRES = "access_expires";
+    public static final String GOOGLE_MAP_ID = "233689536559";
     public static final String FB_APP_ID = "242284462626099";
     public static final String FB_AUTH = "fbAuth";
     public static final String SENDER_ID = "835042868787";
     public static final String FB_LOGIN = "fbLogin";
     public static final String REGISTER_FB = "registerFb";
+    public static final String KEEPTOUCH_FRIENDS = "keepTouchFriends";
 
 
     private static SharedPreferences m_Settings;

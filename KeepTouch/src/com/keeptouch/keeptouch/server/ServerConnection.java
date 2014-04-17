@@ -160,4 +160,33 @@ public class ServerConnection {
         return RegisterActivity.RegisterUserResult.Success;
     }
 
+    public static void GetFacebookDetails(int i_UserId, String i_FbId) {
+
+    }
+
+    public Boolean UpdateUserDetailsViaFb() {
+        return true;
+    }
+
+    public void GetProfileDetails(int m_profileId) {
+    }
+
+    public boolean AddNewEvent()
+    {
+        return true;
+    }
+
+    public boolean UpdateEvent()
+    {
+        return true;
+    }
+
+    public void GetEventDetails()
+    {
+
+    }
+
+    public static void GetkeepTouchFriend() {
+
+    }
 }

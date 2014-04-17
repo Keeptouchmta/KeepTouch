@@ -17,7 +17,7 @@
 	    android:paddingLeft="@dimen/activity_horizontal_margin"
 	    android:paddingRight="@dimen/activity_horizontal_margin"
 	    android:paddingTop="@dimen/activity_vertical_margin" >
- <TextView
+    <TextView
         android:id="@+id/txtAddEditEventTitle"
         style="@style/DateStyle"
         android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
 	    android:layout_toRightOf="@+id/txtSetDate"
         android:layout_marginTop="15dp"
         android:src="@drawable/btn_calendar"
-         android:background="@null"  
+        android:background="@null"
          />
 
     <TextView
@@ -125,14 +125,30 @@
 	        android:id="@+id/btnPlusInterests"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignBottom="@+id/linearLayoutInvites"
-	        android:layout_toRightOf="@+id/linearLayoutInvites"
-	        android:background="@null"
+        android:background="@null"
 	        android:src="@drawable/btn_plus"
-	        android:layout_marginLeft="15dp"
-	         />
-</RelativeLayout>
-    <ImageButton
+        android:layout_alignTop="@+id/linearLayoutInvites"
+        android:layout_toRightOf="@+id/linearLayoutInvites" />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/txtSetTime"
+             android:text="Set time:"
+             android:layout_alignBottom="@+id/btnCalendar"
+             android:layout_toRightOf="@+id/btnAddLocation" />
+         <ImageButton
+             android:id="@+id/btnTime"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/btn_watch"
+             android:background="@null"
+             android:layout_below="@+id/etxtEventDescription"
+             android:layout_marginLeft="@dimen/small_margin"
+             android:layout_toRightOf="@+id/txtSetTime" />
+     </RelativeLayout>
+
+    <ImageButton
         android:id="@+id/btnPrivacy"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
@@ -148,6 +164,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/btn_save"  
-         />    
-    </RelativeLayout>
+         />
+</RelativeLayout>
     

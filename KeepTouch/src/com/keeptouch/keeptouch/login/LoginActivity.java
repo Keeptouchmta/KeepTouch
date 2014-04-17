@@ -78,13 +78,7 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v)
             {
-                m_Password.setVisibility(View.GONE);
-                buttonLogin.setVisibility(View.GONE);
                 new LoginViaFbTask().execute();
-                //Intent intent = new Intent(v.getContext(), FacebookAuth.class);
-                //intent.putExtra(Storage.FB_LOGIN, true);
-                //startActivity(intent);
-                //((Activity)v.getContext()).finish();
 
             }
         });

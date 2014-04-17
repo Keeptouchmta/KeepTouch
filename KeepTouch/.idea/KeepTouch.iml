@@ -22,6 +22,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="facebook-android-sdk" level="project" />
     <orderEntry type="library" name="crouton-1.7" level="project" />
+    <orderEntry type="library" name="google-play-services_lib" level="project" />
+    <orderEntry type="library" name="android-support-v4" level="project" />
   </component>
 </module>
 

@@ -53,13 +53,21 @@ public class RegisterActivity extends Activity
     private Facebook m_Facebook;
     private String m_DbFacebookId;
     private Boolean m_HandledNewUserWithFacebook = false;
+    private Boolean m_FacebookAuthorized;
+    //private FriendPickerFragment friendPickerFragment;
 
     public void onCreate(Bundle savedInstanceState)
 	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         System.out.println("on create for Register activity");
-        final Bundle extras = getIntent().getExtras();
+        m_Intent = getIntent();
+        m_FacebookAuthorized = m_Intent.hasExtra(Storage.FB_AUTH);
+        if(m_FacebookAuthorized)
+        {
+            new RegisterUserViaFacbookTask().execute();
+        }
+
         initFields();
         initValidationForm();
         final Button registerButton = (Button)findViewById(R.id.buttonRegister);
@@ -81,8 +89,10 @@ public class RegisterActivity extends Activity
         {
             public void onClick(View i_View)
             {
-                new RegisterUserViaFacbookTask().execute();
-
+                Intent intent = new Intent(RegisterActivity.this, FacebookAuth.class);
+                intent.putExtra(Storage.REGISTER_FB, true);
+                startActivity(intent);
+                RegisterActivity.this.finish();
             }
         });
 
@@ -115,7 +125,8 @@ public class RegisterActivity extends Activity
                 saveString(USER_EMAIL, m_Email, !COMMIT);
                 saveString(USER_PASSWORD, m_Passsword, !COMMIT);
                 saveInt(USER_ID, m_UserId, COMMIT);
-                System.out.println("login :" + m_Email);
+                System.out.println("Register :" + m_Email);
+
             }
         }
 
@@ -188,6 +199,21 @@ public class RegisterActivity extends Activity
             else if(registerUserResult.equals(RegisterUserResult.Success)){
                 saveInt(USER_ID, m_UserId, COMMIT);
                 System.out.println("Register via facebook :" + m_Email);
+                m_ServerConnection.GetFacebookDetails(m_UserId, m_FacebookId); // to decide what to return
+                Boolean facebookAuthSuccess = m_ServerConnection.UpdateUserDetailsViaFb();// send to object to that method
+
+                if (facebookAuthSuccess)
+                {
+                    m_Intent = new Intent(RegisterActivity.this, ProfileScreen.class);
+                    startActivity(m_Intent);
+                    RegisterActivity.this.finish();
+
+                }
+                else
+                {
+                    Toast.makeText(RegisterActivity.this, "Could not login to facebook.", Toast.LENGTH_LONG).show();
+                }
+
             }
         }
 
@@ -195,8 +221,8 @@ public class RegisterActivity extends Activity
         @Override
         protected RegisterUserResult doInBackground(String... strings) {
             RegisterUserResult registerUserResult;
-            m_Facebook = ServerConnection.GetFacebookConnection();
-            getFacebookIdFromBothSources();
+            m_ServerConnection = ServerConnection.getConnection();
+            getFacebookId();
             return handleNewUserWithFacebook();
         }
     }
@@ -207,7 +233,7 @@ public class RegisterActivity extends Activity
         return m_ServerConnection.RegisterNewUserViaFb(m_FacebookId,m_UserId);
     }
 
-    private void getFacebookIdFromBothSources()
+    private void getFacebookId()
     {
         m_Facebook = ServerConnection.GetFacebookConnection();
         JSONObject userJson;
@@ -220,8 +246,6 @@ public class RegisterActivity extends Activity
         {
             e.printStackTrace();
         }
-
-        m_DbFacebookId = m_ServerConnection.GetFbId(m_UserId);
 
     }
 }

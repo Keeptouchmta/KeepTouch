@@ -106,6 +106,7 @@ public class FacebookAuth extends Activity {
         else if(getIntent().getExtras() != null && getIntent().getExtras().containsKey(Storage.REGISTER_FB))
         {
             m_Intent = new Intent(FacebookAuth.this, RegisterActivity.class);
+            m_Intent.putExtra(Storage.FB_AUTH, true);
         }
 
         startActivity(m_Intent);

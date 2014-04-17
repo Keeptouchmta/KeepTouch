@@ -35,7 +35,7 @@ public class EventScreen extends MasterScreen {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_event);
 		
 		TextView eventTitle = (TextView) findViewById(R.id.txtEventTitle);
 		eventTitle.setText("Party!");
@@ -57,12 +57,8 @@ public class EventScreen extends MasterScreen {
 		
 		TextView eventDate = (TextView) findViewById(R.id.txtEventDate);
 		eventDate.setText("9.9.14");
-		
-		TextView eventAttendies = (TextView) findViewById(R.id.txtAttendies);
-		eventAttendies.setText("Attendies:");
-		
+
 		TextView eventInvites = (TextView) findViewById(R.id.txtInvites);
-		eventInvites.setText("Invites:");
 		
 		TextView eventCommonAttendiesInterests = (TextView) findViewById(R.id.txtCommonAttendiesInterests);
 		eventCommonAttendiesInterests.setText("Common Attendies Interests:");

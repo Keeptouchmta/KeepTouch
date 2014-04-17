@@ -20,45 +20,58 @@ import android.view.animation.AnimationUtils;
 import android.widget.*;
 import android.view.animation.Transformation;
 
+import com.keeptouch.keeptouch.Utils.Storage;
+import com.keeptouch.keeptouch.server.ServerConnection;
 
-	public class ProfileScreen extends MasterScreen {
+
+public class ProfileScreen extends MasterScreen {
 
 		Activity thisActivity = this;
-		
+        private int m_profileId;
+    private ServerConnection m_ServerConnection;
+
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.profile);
-			
+            Intent m_Intent = getIntent();
+            m_profileId = m_Intent.getIntExtra("profileUserId", -1);
+            if(m_profileId != -1)
+            {
+                m_ServerConnection = ServerConnection.getConnection();
+                m_ServerConnection.GetProfileDetails(m_profileId);
+
+            }
+
 			TextView profileUserName = (TextView) findViewById(R.id.txtUserName);
-			profileUserName.setText("Sasha Poliacov");
+			//profileUserName.setText("Sasha Poliacov");
 			
 			TextView profileLocation = (TextView) findViewById(R.id.txtLocation);
-			profileLocation.setText("Tel Aviv");
-			
-			
+			//profileLocation.setText("Tel Aviv");
+
+
 			ViewGroup linearLayoutGroups = (ViewGroup) findViewById(R.id.linearLayoutGroups);
 			List<Integer> drawablesGroups = new ArrayList<Integer>();
-			drawablesGroups.add(R.drawable.bikes);
-			drawablesGroups.add(R.drawable.domino);
-			drawablesGroups.add(R.drawable.maccabi);
+			//drawablesGroups.add(R.drawable.bikes);
+			//drawablesGroups.add(R.drawable.domino);
+			//drawablesGroups.add(R.drawable.maccabi);
 	        
-			SetFaceListWithoutLinks(linearLayoutGroups, drawablesGroups);
+			//SetFaceListWithoutLinks(linearLayoutGroups, drawablesGroups);
 	        
 	        ViewGroup linearLayoutLatestEvents = (ViewGroup) findViewById(R.id.linearLayoutLatestEvents);
 	        List<Integer> drawablesEvents = new ArrayList<Integer>();
-	        drawablesEvents.add(R.drawable.party);
-	        drawablesEvents.add(R.drawable.picnic);
-	        drawablesEvents.add(R.drawable.beach);
-	        SetFaceListWithoutLinks(linearLayoutLatestEvents, drawablesEvents);
+	        //drawablesEvents.add(R.drawable.party);
+	        //drawablesEvents.add(R.drawable.picnic);
+	        //drawablesEvents.add(R.drawable.beach);
+	        //SetFaceListWithoutLinks(linearLayoutLatestEvents, drawablesEvents);
 	        
 	        ViewGroup linearLayoutInterests = (ViewGroup) findViewById(R.id.linearLayoutInterests);
 	        List<Integer> drawablesInterests = new ArrayList<Integer>();
-	        drawablesInterests.add(R.drawable.cook);
-	        drawablesInterests.add(R.drawable.bikes);
-	        drawablesInterests.add(R.drawable.cats);
-	        drawablesInterests.add(R.drawable.dogs);
-	        SetFaceListWithoutLinks(linearLayoutInterests, drawablesInterests);
+	        //drawablesInterests.add(R.drawable.cook);
+	        //drawablesInterests.add(R.drawable.bikes);
+	        //drawablesInterests.add(R.drawable.cats);
+	        //drawablesInterests.add(R.drawable.dogs);
+	        //SetFaceListWithoutLinks(linearLayoutInterests, drawablesInterests);
 		}
 
 		
