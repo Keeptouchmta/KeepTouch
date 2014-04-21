@@ -1,0 +1,63 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<color name="default_theme_bg_color">#E9E9E9</color>
+	<color name="default_text_color">#595d74</color>
+	<color name="views_special_color">#E9E9E9</color>
+    <color name="light_gray">#E9E9E9</color>
+	<color name="views_special_color_pressed">#E9E9E9</color>
+	<color name="views_default_color">#E9E9E9</color>
+	<color name="views_default_color_pressed">#E9E9E9</color>
+    <color name="light_purple">#9370DB</color>
+
+    <dimen name="default_text_size">12sp</dimen>
+	<dimen name="date_text_size">30sp</dimen>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBarTheme</item>
+    </style>
+
+    <style name="MyActionBarTheme"  parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+
+        <item name="android:background">@color/light_purple</item>
+
+
+    </style>
+    <style name="titleBarBackgroundStyle">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <!-- ActionBar title text -->
+    <style name="ActionBarTitleText"
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <!-- The textColor property is backward compatible with the Support Library -->
+    </style>
+
+
+    <style name="DateStyle" parent="AppBaseTheme">
+        <item name="android:textColor">@color/views_special_color</item>
+        <item name="android:textSize">@dimen/date_text_size</item>
+    </style>
+    <style name="DatePickerStyle" parent="AppBaseTheme">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@color/light_gray</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:gravity">center</item>
+    </style>
+	
+    <!-- Edit text styles -->
+    <style name="EditTextRoundedStyle" parent="AppBaseTheme">
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+</resources>

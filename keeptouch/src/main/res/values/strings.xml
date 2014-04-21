@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Keep Touch</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_new_event">Add new event</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="zvalidations_not_positive_integer">Field should be positive integer</string>
+    <string name="email_not_match">Emails don\'t match</string>
+    <string name="zvalidations_empty">Field could not be empty</string>
+    <string name="zvalidations_not_in_range">Field should be between %1$d and %2$d</string>
+    <string name="zvalidations_not_email">Value is not valid email address</string>
+    <string name="zvalidations_already_registered">That email is already registered.Did
+        you mean to log in?</string>
+    <string name="menu_crouton_validation_failed_renderer">Crouton</string>
+    <string name="signup"><![CDATA[<u>Sign up</u>]]></string>
+    <string name="edit_event">Edit event</string>
+    <string name="error_dialog_title">Error</string>
+    <string name="error_dialog_button_text">OK</string>
+    <string name="action_friend_picker">Select friends</string>
+    <string name="action_location_picker">Select Location</string>
+    <string name="button_done">DONE</string>
+    <string name="action_search">Select friend</string>
+    <string name="myMapKey" >AIzaSyCeNSDYa6_O0yVCnZgmR1TAHQtOnpHYoN4</string>
+    <string name="password">Password</string>
+    <string name="email">Email Address</string>
+    <string name="login_without_facebook">Login with Email</string>
+    <string name="ReTypePassword">Re-type password</string>
+    <string name="select_location">Select Place</string>
+    <string name="justUse">Just use</string>
+    <string name="action_choose_location">choose location</string>
+
+</resources>

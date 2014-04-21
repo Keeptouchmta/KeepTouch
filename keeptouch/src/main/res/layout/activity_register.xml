@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.keeptouch.login.RegisterActivity"
+    tools:ignore="MergeRootFrame"
+    android:clickable="true">
+
+    <EditText
+        android:id="@+id/textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:layout_below="@+id/textEmailAddress"
+        android:layout_alignRight="@+id/imageButtonRegisterWithFacebok"
+        android:layout_alignLeft="@+id/imageButtonRegisterWithFacebok" />
+    <EditText
+        android:id="@+id/textReTypePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/ReTypePassword"
+        android:inputType="textPassword"
+        android:layout_below="@+id/textPassword"
+        android:layout_alignRight="@+id/imageButtonRegisterWithFacebok"
+        android:layout_alignLeft="@+id/imageButtonRegisterWithFacebok" />
+
+    <EditText
+        android:id="@+id/textEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:hint="@string/email"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/imageButtonRegisterWithFacebok"
+        android:layout_alignLeft="@+id/imageButtonRegisterWithFacebok" />
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonRegisterWithFacebok"
+        android:focusableInTouchMode="false"
+        android:background="@drawable/btn_facebook_signup"
+        android:layout_marginTop="91dp"
+        android:layout_below="@+id/textReTypePassword"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign UP"
+        android:id="@+id/buttonRegister"
+        android:layout_below="@+id/textReTypePassword"
+        android:layout_alignRight="@+id/imageButtonRegisterWithFacebok"
+        android:layout_alignLeft="@+id/imageButtonRegisterWithFacebok"
+        android:layout_marginTop="39dp" />
+
+
+</RelativeLayout>
