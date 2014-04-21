@@ -26,6 +26,7 @@ import android.widget.SearchView;
 import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -160,6 +161,31 @@ public class LocationPickerActivity extends Activity{
                 // TODO Auto-generated method stub
             }
         });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                if(m_ChosenPlace != null)
+                {
+                    Intent intent = new Intent(LocationPickerActivity.this, AddEditEventActivity.class);
+                    intent.putExtra(Storage.CHOSEN_LOCATION, m_ChosenPlace);
+                    setResult(Activity.RESULT_OK, intent);
+                    ((Activity) LocationPickerActivity.this).finish();
+                }
+                else
+                {
+                    Toast.makeText(this, R.string.no_place_chosen, Toast.LENGTH_SHORT)
+                            .show();
+                }
+
+                break;
+            default:
+                break;
+        }
 
         return true;
     }

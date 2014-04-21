@@ -1,6 +1,8 @@
 package com.keeptouch.location;
 
-public class GeoPoint {
+import java.io.Serializable;
+
+public class GeoPoint implements Serializable {
     private int latitudeE6;
     private int longitudeE6;
 

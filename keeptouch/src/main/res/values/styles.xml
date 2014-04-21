@@ -38,6 +38,9 @@
         <item name="android:textColor">@color/views_special_color</item>
         <item name="android:textSize">@dimen/date_text_size</item>
     </style>
+    <style name="TextViewStyle" parent="AppBaseTheme">
+        <item name="android:textColor">@color/default_text_color</item>
+    </style>
     <style name="DatePickerStyle" parent="AppBaseTheme">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowBackground">@color/light_gray</item>

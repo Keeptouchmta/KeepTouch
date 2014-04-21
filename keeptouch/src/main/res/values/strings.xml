@@ -30,5 +30,6 @@
     <string name="select_location">Select Place</string>
     <string name="justUse">Just use</string>
     <string name="action_choose_location">choose location</string>
+    <string name="no_place_chosen">No place was chosen</string>
 
 </resources>

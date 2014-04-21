@@ -2,7 +2,7 @@ package com.keeptouch.location;
 
 import java.io.Serializable;
 
-public class Place  {
+public class Place implements Serializable{
     public String m_PlaceId;
     public String m_PlaceName;
     public String m_Icon;

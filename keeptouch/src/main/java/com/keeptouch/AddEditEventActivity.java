@@ -103,7 +103,7 @@ public class AddEditEventActivity extends FragmentActivity {
 
         });
 
-        ImageButton buttonLocationPin = (ImageButton) findViewById(R.id.btnLocationPin);
+        ImageButton buttonLocationPin = (ImageButton) findViewById(R.id.btnAddLocation);
         buttonLocationPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +170,10 @@ public class AddEditEventActivity extends FragmentActivity {
             }
 
             SetFaceList(m_LinearLayoutAttendies, m_FriendDrawables);
+        }
+        else if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.CHOSEN_LOCATION))
+        {
+
         }
     }
 
