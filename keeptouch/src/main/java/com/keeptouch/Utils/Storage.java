@@ -7,8 +7,8 @@ import android.content.SharedPreferences;
  * Created by tgoldberg on 4/11/2014.
  */
 public class Storage {
-    public static final String CHOSEN_LOCATION = "chosenLocation" ;
-    public static final String ADD_EVENT = "addEvent" ;
+    public static final String CHOSEN_LOCATION = "chosenLocation";
+    public static final String ADD_EVENT = "addEvent";
     public static final String EDIT_AVENT = "editEvent";
     public static boolean COMMIT = true;
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -31,7 +31,6 @@ public class Storage {
     public static final String EVENT_LONGITUDE = "eventLongitude";
     public static final String KEY_REFERENCE = "reference";
     public static final String KEY_NAME = "name";
-
 
 
     private static SharedPreferences m_Settings;
@@ -65,7 +64,7 @@ public class Storage {
     }
 
     public static int fetchInt(String key) {
-        return m_Settings.getInt(key,-1);
+        return m_Settings.getInt(key, -1);
     }
 
     public static String fetchString(String key) {

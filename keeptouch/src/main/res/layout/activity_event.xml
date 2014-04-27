@@ -3,8 +3,8 @@
     android:id="@+id/layout_window_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".EventScreen"
-    >
+    tools:context=".EventScreen">
+
     <ImageView
         android:id="@+id/imgEventPic"
         android:layout_width="fill_parent"
@@ -12,8 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/event_pic"
-        />
+        android:src="@drawable/event_pic" />
 
     <RelativeLayout
         android:id="@+id/eventLayout"
@@ -59,9 +58,10 @@
             style="@style/DateStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="9.9.14"
+            android:layout_alignTop="@+id/btnLocationPin"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="9.9.14" />
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/txtEventLocation"
@@ -78,8 +78,7 @@
             android:layout_alignLeft="@+id/txtEventLocation"
             android:layout_below="@+id/txtEventDate"
             android:text="Event description"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/btnLocationPin"
@@ -97,8 +96,7 @@
             android:layout_alignLeft="@+id/txtAttendies"
             android:layout_below="@+id/txtAttendies"
             android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
         </LinearLayout>
 
@@ -118,19 +116,25 @@
             android:layout_alignLeft="@+id/txtInvites"
             android:layout_below="@+id/txtInvites"
             android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-        </LinearLayout>
+            android:orientation="horizontal"></LinearLayout>
 
         <ImageButton
             android:id="@+id/btnPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/linearLayoutInvites"
-            android:layout_toRightOf="@+id/linearLayoutInvites"
             android:background="@null"
             android:src="@drawable/btn_plus"
-            android:layout_marginLeft="15dp"
-            />
+            android:layout_below="@+id/linearLayoutAttendies"
+            android:layout_toRightOf="@+id/txtAttendies" />
+
+        <ImageButton
+            android:id="@+id/btnAddAttendies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/btn_plus"
+            android:layout_above="@+id/btnPlus"
+            android:layout_toRightOf="@+id/txtEventLocation" />
 
         <ImageButton
             android:id="@+id/btnDescriptionExpand"
@@ -150,8 +154,7 @@
             android:layout_alignLeft="@+id/txtCommonAttendiesInterests"
             android:layout_below="@+id/txtCommonAttendiesInterests"
             android:layout_marginTop="15dp"
-            android:orientation="vertical" >
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
     </RelativeLayout>
 

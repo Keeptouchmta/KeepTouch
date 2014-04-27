@@ -17,14 +17,13 @@ public class Profile {
     Drawable m_ProfilePicture;
 
     String m_LastMessageText;
-    int unreadCount=0;
+    int unreadCount = 0;
 
 
     /**
      * Constructor - get the contact user id , user email
      */
-    public Profile(int i_UserId,String i_Email)
-    {
+    public Profile(int i_UserId, String i_Email) {
         m_UserId = i_UserId;
         m_Email = i_Email;
     }
@@ -32,7 +31,7 @@ public class Profile {
     /**
      * Constructor - gets the contact user id
      */
-    public Profile(int i_UserId){
+    public Profile(int i_UserId) {
         m_UserId = i_UserId;
     }
 
@@ -40,8 +39,7 @@ public class Profile {
      * Set this user details
      */
     public void setDetails(String i_FirstName, String i_LastName,
-                          Boolean i_IsMale,String i_Email, String i_FacebookAccount)
-    {
+                           Boolean i_IsMale, String i_Email, String i_FacebookAccount) {
         m_FirstName = i_FirstName;
         m_LastName = i_LastName;
         m_IsMale = i_IsMale;
@@ -50,26 +48,24 @@ public class Profile {
     }
 
     /**
-     * @return  userid
+     * @return userid
      */
-    public int GetUserId()
-    {
+    public int GetUserId() {
         return m_UserId;
     }
 
 
     /**
-     *@return user first name
+     * @return user first name
      */
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return m_FirstName;
     }
 
     /**
      * @return user last name
      */
-    public String getLastName(){
+    public String getLastName() {
         return m_LastName;
     }
 
@@ -83,14 +79,14 @@ public class Profile {
     /**
      * @return this user email
      */
-    public String getEmail(){
+    public String getEmail() {
         return m_Email;
     }
 
     /**
      * @return this user facebook accound id
      */
-    public String getFacebookAccount(){
+    public String getFacebookAccount() {
         return m_FacebookAccount;
     }
 
@@ -107,7 +103,7 @@ public class Profile {
      * @return this contact last message text
      * Should be used in the contacts activity
      */
-    public String getLastMessageText(){
+    public String getLastMessageText() {
         return m_LastMessageText;
     }
 
@@ -121,7 +117,7 @@ public class Profile {
     /**
      * @return the number of message from that contact that still was not read
      */
-    public int getUnreadCount(){
+    public int getUnreadCount() {
         return unreadCount;
     }
 
@@ -129,7 +125,7 @@ public class Profile {
      * Clear the unread messages count
      */
     public void clearUnreadCount() {
-        unreadCount=0;
+        unreadCount = 0;
     }
 
     /**

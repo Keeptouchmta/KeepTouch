@@ -13,7 +13,7 @@ public class Progress {
     public static void show(Context context) {
         m_Progress = ProgressDialog.show(context,
                 "", "Loading data...");
-     }
+    }
 
     public static void dismiss(Context context) {
         m_Progress.dismiss();

@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\tgoldberg\Documents\GitHub\KeepTouch" />
-            <option value="C:\Users\tgoldberg\Documents\GitHub\KeepTouch\keeptouch" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/keeptouch" />
           </set>
         </option>
       </GradleProjectSettings>

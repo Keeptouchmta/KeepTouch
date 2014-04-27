@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold"
-        android:id="@+id/textSignUp"
+        android:id="@+id/buttonAddNewInterest"
         android:layout_below="@+id/imageButtonLoginWithFacebok"
         android:layout_alignRight="@+id/textPassword"
         android:layout_alignEnd="@+id/textPassword"

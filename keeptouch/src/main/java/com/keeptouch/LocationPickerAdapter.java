@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.keeptouch.location.Place;
 import com.keeptouch.location.PlaceLocation;
 import com.keeptouch.server.ServerConnection;
@@ -27,9 +28,9 @@ public class LocationPickerAdapter extends ArrayAdapter<PlaceLocation> {
     ServerConnection m_ServerConnection;
     Context m_Context;
     private ArrayList<PlaceLocation> m_PlacesLocations = new ArrayList<PlaceLocation>();
+
     public LocationPickerAdapter(Context context, int textViewResourceId,
-                                 ArrayList<PlaceLocation> placesLocations)
-    {
+                                 ArrayList<PlaceLocation> placesLocations) {
         super(context, textViewResourceId, placesLocations);
         m_Context = context;
         m_PlacesLocations = placesLocations;
@@ -39,7 +40,6 @@ public class LocationPickerAdapter extends ArrayAdapter<PlaceLocation> {
         m_PlacesLocations = placeLocations;
         notifyDataSetChanged();
     }
-
 
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -54,7 +54,7 @@ public class LocationPickerAdapter extends ArrayAdapter<PlaceLocation> {
             holder = new ViewHolderLocation();
             holder.name = (TextView) convertView.findViewById(R.id.name);
             holder.placePhoto = (ImageView) convertView.findViewById(R.id.photo);
-            holder.address =  (TextView) convertView.findViewById(R.id.address);
+            holder.address = (TextView) convertView.findViewById(R.id.address);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolderLocation) convertView.getTag();
@@ -69,7 +69,7 @@ public class LocationPickerAdapter extends ArrayAdapter<PlaceLocation> {
 
     @Override
     public int getCount() {
-       return m_PlacesLocations.size();
+        return m_PlacesLocations.size();
     }
 
     @Override

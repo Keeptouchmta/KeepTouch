@@ -1,4 +1,5 @@
 package com.keeptouch;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -54,7 +55,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 
-public class LocationPickerActivity extends Activity{
+public class LocationPickerActivity extends Activity {
     private GoogleMap m_Map;
     private static final int m_Radius = 25000;
 
@@ -95,7 +96,7 @@ public class LocationPickerActivity extends Activity{
         m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                m_ChosenPlace = (PlaceLocation)m_ListView.getItemAtPosition(position);
+                m_ChosenPlace = (PlaceLocation) m_ListView.getItemAtPosition(position);
                 showPlaceOnMap(m_ChosenPlace);
 //                m_ChoosePlaceItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //                    @Override
@@ -115,8 +116,8 @@ public class LocationPickerActivity extends Activity{
 
     private void showPlaceOnMap(PlaceLocation itemAtPosition) {
         GeoPoint geoPoint = itemAtPosition.getLocation();
-        double lat = (double)geoPoint.getLatitudeE6() / 1E6;
-        double lng = (double)geoPoint.getLongitudeE6() / 1E6;
+        double lat = (double) geoPoint.getLatitudeE6() / 1E6;
+        double lng = (double) geoPoint.getLongitudeE6() / 1E6;
         LatLng latLng = new LatLng(lat, lng);
         m_Map.clear();
         MarkerOptions marker = new MarkerOptions().position(latLng);
@@ -169,15 +170,12 @@ public class LocationPickerActivity extends Activity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                if(m_ChosenPlace != null)
-                {
+                if (m_ChosenPlace != null) {
                     Intent intent = new Intent(LocationPickerActivity.this, AddEditEventActivity.class);
                     intent.putExtra(Storage.CHOSEN_LOCATION, m_ChosenPlace);
                     setResult(Activity.RESULT_OK, intent);
                     ((Activity) LocationPickerActivity.this).finish();
-                }
-                else
-                {
+                } else {
                     Toast.makeText(this, R.string.no_place_chosen, Toast.LENGTH_SHORT)
                             .show();
                 }
@@ -192,8 +190,7 @@ public class LocationPickerActivity extends Activity{
 
     private class LoadNearByPlacesAndServicesTask extends AsyncTask<Void, Void, Void> {
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             super.onPreExecute();
             m_ServerConnection = ServerConnection.getConnection();
             System.out.println("After setting mapview settings progDialog");
@@ -205,19 +202,18 @@ public class LocationPickerActivity extends Activity{
         }
 
         @Override
-        protected Void doInBackground(Void... arg0)
-        {
+        protected Void doInBackground(Void... arg0) {
             // ConnectionReceiver.StartObserving(LocationPickerActivity.this);
             startLocationService();
             m_ServerConnection = ServerConnection.getConnection();
             m_NearPlaces = new ArrayList<PlaceLocation>();
 //            m_NearPlaces = m_ServerConnection.getPlacesNearBy(m_Radius,m_Gps.getLocation());
 
-            String names[] = {"Tzlil", "Natali","Sasha"};
+            String names[] = {"Tzlil", "Natali", "Sasha"};
             //GeoPoint point[] = {new GeoPoint(};
-            GeoPoint[] point = {new GeoPoint((int)(32.069961 * 1E6),(int)(34.78208*1E6)),new GeoPoint((int)(32.069962 * 1E6),(int)(34.78208*1E6)),new GeoPoint((int)(32.169962 * 1E6),(int)(34.78308*1E6)) };
-            Integer[] photos = {R.drawable.tzlil,R.drawable.natalie, R.drawable.sash};
-            String[] address =  {"tel aviv","ramat gan", "givatayim"};
+            GeoPoint[] point = {new GeoPoint((int) (32.069961 * 1E6), (int) (34.78208 * 1E6)), new GeoPoint((int) (32.069962 * 1E6), (int) (34.78208 * 1E6)), new GeoPoint((int) (32.169962 * 1E6), (int) (34.78308 * 1E6))};
+            Integer[] photos = {R.drawable.tzlil, R.drawable.natalie, R.drawable.sash};
+            String[] address = {"tel aviv", "ramat gan", "givatayim"};
             Place placeLocation;
             int noOfPlayers = names.length;
 
@@ -227,7 +223,7 @@ public class LocationPickerActivity extends Activity{
                 placeLocation.setPlaceName(names[i]);
                 placeLocation.setPlacePhoto(photos[i]);
                 placeLocation.setFormattedAddress(address[i]);
-                PlaceLocation placeLocation1 = new PlaceLocation(placeLocation,point[i]);
+                PlaceLocation placeLocation1 = new PlaceLocation(placeLocation, point[i]);
 
                 //add the row to the ArrayList
                 m_NearPlaces.add(placeLocation1);
@@ -278,20 +274,14 @@ public class LocationPickerActivity extends Activity{
     }
 
 
-    public void Update(int i_Updater)
-    {
-        switch (i_Updater)
-        {
+    public void Update(int i_Updater) {
+        switch (i_Updater) {
             case IObserver.NETWORK_RECEIVER:
                 System.out.println("Net: " + ConnectionReceiver.GetNetworkState());
-                if (!ConnectionReceiver.GetNetworkState())
-                {
+                if (!ConnectionReceiver.GetNetworkState()) {
                     showNoConnectionDialog();
-                }
-                else
-                {
-                    if (m_NoInternetDialog != null)
-                    {
+                } else {
+                    if (m_NoInternetDialog != null) {
                         m_NoInternetDialog.cancel();
                     }
                 }
@@ -299,13 +289,12 @@ public class LocationPickerActivity extends Activity{
         }
     }
 
-    private void showNoConnectionDialog()
-    {
+    private void showNoConnectionDialog() {
         //AlertDialogManager.Builder builder = new AlertDialog.Builder(EnvirActivity.this);
         //m_NoInternetDialog = builder.setMessage("Internet is down. Waiting for connection...").setPositiveButton("Quit", new InternetDialogListener()).show();
     }
 
-    private class GetPlacesAccordingToCharSequenceTask extends AsyncTask<CharSequence, Void,  CharSeqAndPlaceLocations> {
+    private class GetPlacesAccordingToCharSequenceTask extends AsyncTask<CharSequence, Void, CharSeqAndPlaceLocations> {
         @Override
         protected void onPreExecute() {
 

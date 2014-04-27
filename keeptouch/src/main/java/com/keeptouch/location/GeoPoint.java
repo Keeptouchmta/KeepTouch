@@ -10,8 +10,9 @@ public class GeoPoint implements Serializable {
         this.latitudeE6 = latitudeE6;
         this.longitudeE6 = longitudeE6;
     }
+
     GeoPoint(double latitude, double longitude) {
-        this((int)(latitude * 1e6), (int)(longitude * 1e6));
+        this((int) (latitude * 1e6), (int) (longitude * 1e6));
     }
 
     public int getLatitudeE6() {

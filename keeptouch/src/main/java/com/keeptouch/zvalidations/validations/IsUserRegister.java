@@ -26,7 +26,7 @@ public class IsUserRegister extends BaseValidation {
     public ValidationResult validate(Field field) {
         EditText textView = field.getTextView();
         ServerConnection m_ServerConnection = ServerConnection.getConnection();
-        int m_UserId = (int)(m_ServerConnection.CheckUserExists(textView.getText().toString()));
+        int m_UserId = (int) (m_ServerConnection.CheckUserExists(textView.getText().toString()));
 
         boolean isValid = (m_UserId == ServerConnection.USER_EXITS) ? false : true;
         return isValid ?

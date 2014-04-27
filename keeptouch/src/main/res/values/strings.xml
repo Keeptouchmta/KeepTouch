@@ -22,7 +22,7 @@
     <string name="action_location_picker">Select Location</string>
     <string name="button_done">DONE</string>
     <string name="action_search">Select friend</string>
-    <string name="myMapKey" >AIzaSyCeNSDYa6_O0yVCnZgmR1TAHQtOnpHYoN4</string>
+    <string name="myMapKey">AIzaSyCeNSDYa6_O0yVCnZgmR1TAHQtOnpHYoN4</string>
     <string name="password">Password</string>
     <string name="email">Email Address</string>
     <string name="login_without_facebook">Login with Email</string>
@@ -31,5 +31,17 @@
     <string name="justUse">Just use</string>
     <string name="action_choose_location">choose location</string>
     <string name="no_place_chosen">No place was chosen</string>
+    <string name="ChooseYourInterests">Choose Your Interests:</string>
+    <string name="Search">Search...</string>
+    <string name="DidntFindInterst">Didn\'t Find Your Interest?</string>
+    <string name="AddNewInterest">Add New Interest:</string>
+    <string name="AddYourAddress">Add Your Address:</string>
+    <string name="Continue">Continue</string>
+    <string name="NewInterestName">New Interest Name..</string>
+    <string name="InterestType">Interest Type:</string>
+    <string name="Add">Add</string>
+    <string name="LetsGetStarted">Let\'s Get Started!</string>
+    <string name="textSignUp">Sign UP</string>
+
 
 </resources>

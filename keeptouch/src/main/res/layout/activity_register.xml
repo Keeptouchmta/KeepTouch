@@ -18,6 +18,7 @@
         android:layout_below="@+id/textEmailAddress"
         android:layout_alignRight="@+id/imageButtonRegisterWithFacebok"
         android:layout_alignLeft="@+id/imageButtonRegisterWithFacebok" />
+
     <EditText
         android:id="@+id/textReTypePassword"
         android:layout_width="wrap_content"
@@ -56,8 +57,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign UP"
-        android:id="@+id/buttonRegister"
+        android:text="@string/Continue"
+        android:id="@+id/buttonContinue"
         android:layout_below="@+id/textReTypePassword"
         android:layout_alignRight="@+id/imageButtonRegisterWithFacebok"
         android:layout_alignLeft="@+id/imageButtonRegisterWithFacebok"

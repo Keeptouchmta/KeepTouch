@@ -55,20 +55,20 @@ public class LoginActivity extends Activity {
     // Form used for validation
     private Form m_Form;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
         System.out.println("on create for login activity");
         Storage.init(LoginActivity.this);
         initFields();
         initValidationForm();
 
         final Button buttonLogin = (Button) findViewById(id.buttonLogin);
-        buttonLogin.setOnClickListener(new View.OnClickListener(){
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                if (m_Form.isValid()){
+            public void onClick(View v) {
+                if (m_Form.isValid()) {
                     new ConfirmUserTask().execute(m_Email.getText().toString(),
                             m_Password.getText().toString());
                 }
@@ -76,33 +76,31 @@ public class LoginActivity extends Activity {
         });
 
         ImageButton buttonFacebookLogin = (ImageButton) findViewById(id.imageButtonLoginWithFacebok);
-        buttonFacebookLogin.setOnClickListener(new View.OnClickListener()
-        {
+        buttonFacebookLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 new LoginViaFbTask().execute();
 
             }
         });
 
-        TextView textViewSignUp =  (TextView) findViewById(R.id.textSignUp);
-        String htmlString="<u>Sign up</u>";
-        textViewSignUp.setText(Html.fromHtml(htmlString));
-        textViewSignUp.setOnClickListener(new View.OnClickListener() {
+        TextView textViewContinue = (TextView) findViewById(id.buttonContinue);
+        String htmlString = "<u>Continue</u>";
+        textViewContinue.setText(Html.fromHtml(htmlString));
+        textViewContinue.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), RegisterActivity.class);
                 startActivity(intent);
-                ((Activity)v.getContext()).finish();
+                ((Activity) v.getContext()).finish();
             }
         });
     }
 
     private void initValidationForm() {
         m_Form = new Form(this);
-        m_Form.setValidationFailedRenderer( new TextViewValidationFailedRenderer(this));
+        m_Form.setValidationFailedRenderer(new TextViewValidationFailedRenderer(this));
         m_Form.addField(Field.using(m_Email).validate(NotEmpty.build(this)).validate(IsEmail.build(this)));
         m_Form.addField(Field.using(m_Password).validate(NotEmpty.build(this)));
     }
@@ -113,47 +111,46 @@ public class LoginActivity extends Activity {
     }
 
     @Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.login, menu);
+        return true;
+    }
 
     public enum ConfirmUserResult {
         Failed,
         Success
     }
 
-    private class ConfirmUserTask extends AsyncTask<String, Void, ConfirmUserResult>{
+    private class ConfirmUserTask extends AsyncTask<String, Void, ConfirmUserResult> {
 
         ProgressDialog m_ProgressDialog;
         String m_Email;
-        String m_Passsword ;
+        String m_Passsword;
 
         @Override
         protected void onPostExecute(ConfirmUserResult confirmUserResult) {
 
             super.onPostExecute(confirmUserResult);
 
-            if(confirmUserResult.equals(ConfirmUserResult.Failed)){
+            if (confirmUserResult.equals(ConfirmUserResult.Failed)) {
                 Progress.dismiss(LoginActivity.this);
                 Toast.makeText(LoginActivity.this,
                         "Faild to login." +
                                 "Please check your email and password.",
                         Toast.LENGTH_LONG).show();
-            }
-            else if(confirmUserResult.equals(ConfirmUserResult.Success)){
+            } else if (confirmUserResult.equals(ConfirmUserResult.Success)) {
                 saveString(USER_EMAIL, m_Email, !COMMIT);
                 saveString(USER_PASSWORD, m_Passsword, !COMMIT);
                 saveInt(USER_ID, m_UserId, COMMIT);
                 System.out.println("login :" + m_Email);
 
-                if (m_Extras != null){
+                if (m_Extras != null) {
                     Progress.dismiss(LoginActivity.this);
                     m_Intent = new Intent(LoginActivity.this, ProfileActivity.class);
                     startActivity(m_Intent);
-                    ((Activity)LoginActivity.this).finish();
+                    ((Activity) LoginActivity.this).finish();
                 }
             }
         }
@@ -164,69 +161,59 @@ public class LoginActivity extends Activity {
             m_Email = strings[0];
             m_Passsword = strings[1];
             m_Connection = ServerConnection.getConnection();
-            ConfirmUserResult confirmUserResult =  m_Connection.Login(m_Email,m_Passsword);
+            ConfirmUserResult confirmUserResult = m_Connection.Login(m_Email, m_Passsword);
             m_UserId = m_Connection.getLocalUserId();
             m_Connection.UpdateUserInitially();
             return confirmUserResult;
         }
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             Progress.show(LoginActivity.this);
         }
     }
 
-    class LoginViaFbTask extends AsyncTask<Void, Void, Void>
-    {
+    class LoginViaFbTask extends AsyncTask<Void, Void, Void> {
 
         ProgressDialog m_ProgDialog;
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             Progress.show(LoginActivity.this);
         }
 
         @Override
-        protected Void doInBackground(Void... arg0)
-        {
+        protected Void doInBackground(Void... arg0) {
             m_Connection = ServerConnection.getConnection();
             Integer userId = m_Connection.LoginViaFb();
             Intent intent;
-            if (!(userId == -1))
-            {
+            if (!(userId == -1)) {
                 Storage.saveInt(Storage.USER_ID, userId, true);
                 intent = new Intent(LoginActivity.this, FacebookAuth.class);
                 intent.putExtra(Storage.FB_LOGIN, true);
                 startActivity(intent);
                 LoginActivity.this.finish();
-            }
-            else
-            {
+            } else {
                 Toast.makeText(LoginActivity.this, "Cannot login, try again later.", Toast.LENGTH_LONG).show();
                 m_AsyncFb = ServerConnection.GetFacebookAsyncRunner();
-                if (m_AsyncFb != null)
-                {
+                if (m_AsyncFb != null) {
                     logoutFacebook();
                 }
                 Progress.dismiss(LoginActivity.this);
 
             }
 
-            return  null;
+            return null;
         }
     }
 
-    public void logoutFacebook()
-    {
+    public void logoutFacebook() {
         Storage.saveString(Storage.ACCESS_TOKEN, null, false);
         Storage.saveLong("access_expires", 0, true);
         m_AsyncFb.logout(LoginActivity.this, new AuthRequestListener());
     }
 
-    class AuthRequestListener implements AsyncFacebookRunner.RequestListener
-    {
+    class AuthRequestListener implements AsyncFacebookRunner.RequestListener {
 
         @Override
         public void onComplete(String response, Object state) {

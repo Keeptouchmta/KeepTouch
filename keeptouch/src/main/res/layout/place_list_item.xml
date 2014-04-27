@@ -34,7 +34,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/address"
         android:layout_alignBottom="@+id/photo"
-        android:layout_toRightOf="@+id/photo"
-       />
+        android:layout_toRightOf="@+id/photo" />
 
 </RelativeLayout>

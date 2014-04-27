@@ -12,8 +12,9 @@ import com.keeptouch.zvalidations.ValidationResult;
  */
 public class IsPasswordAndVerifyPasswordEquals extends BaseValidation {
     private EditText m_OtherText;
+
     protected IsPasswordAndVerifyPasswordEquals(Context context, EditText i_OtherText) {
-       super(context);
+        super(context);
         m_OtherText = i_OtherText;
     }
 
@@ -21,13 +22,13 @@ public class IsPasswordAndVerifyPasswordEquals extends BaseValidation {
         return new IsPasswordAndVerifyPasswordEquals(context, i_OtherText);
     }
 
-   @Override
-   public ValidationResult validate(Field field) {
-       EditText textView = field.getTextView();
+    @Override
+    public ValidationResult validate(Field field) {
+        EditText textView = field.getTextView();
 
-       boolean isValid = textView.getText().toString().matches(m_OtherText.getText().toString());
-       return isValid ?
-               ValidationResult.buildSuccess(textView)
-               : ValidationResult.buildFailed(textView, mContext.getString(R.string.email_not_match));
+        boolean isValid = textView.getText().toString().matches(m_OtherText.getText().toString());
+        return isValid ?
+                ValidationResult.buildSuccess(textView)
+                : ValidationResult.buildFailed(textView, mContext.getString(R.string.email_not_match));
     }
 }

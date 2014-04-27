@@ -53,7 +53,7 @@ public class FieldValidationResult {
     public List<ValidationResult> getFailedValidationResults() {
         List<ValidationResult> failedValidations = new LinkedList<ValidationResult>();
         for (ValidationResult validationResult : mValidationResults) {
-            if(!validationResult.isValid()) {
+            if (!validationResult.isValid()) {
                 failedValidations.add(validationResult);
             }
         }

@@ -25,38 +25,30 @@ public class FacebookAuth extends Activity {
         String access_token = Storage.fetchString(Storage.ACCESS_TOKEN);
         long expires = Storage.fetchLong(Storage.ACCESS_EXPIRES);
 
-        if(access_token != null)
-        {
+        if (access_token != null) {
             m_Facebook.setAccessToken(access_token);
         }
 
-        if(expires != 0)
-        {
+        if (expires != 0) {
             m_Facebook.setAccessExpires(expires);
         }
 
-        if(!m_Facebook.isSessionValid())
-        {
+        if (!m_Facebook.isSessionValid()) {
             connectToFacebook();
-        }
-        else
-        {
+        } else {
 
         }
     }
 
     private void connectToFacebook() {
 
-        try
-        {
-            m_Facebook.authorize(this,new String[]{"user_birthday",
-                    "user_photos", "user_status", "email"}, new DialogListener()
-            {
+        try {
+            m_Facebook.authorize(this, new String[]{"user_birthday",
+                    "user_photos", "user_status", "email"}, new DialogListener() {
                 @Override
-                public void onComplete(Bundle values)
-                {
-                    Storage.saveString("access_token", m_Facebook.getAccessToken(),false);
-                    Storage.saveLong("access_expires",m_Facebook.getAccessExpires(),true);
+                public void onComplete(Bundle values) {
+                    Storage.saveString("access_token", m_Facebook.getAccessToken(), false);
+                    Storage.saveLong("access_expires", m_Facebook.getAccessExpires(), true);
                     System.out.println("FB COMPLETE");
                     ServerConnection.facebookAuth = true;
                     ServerConnection.GetUserDetails(ServerConnection.GetUserId());
@@ -64,8 +56,7 @@ public class FacebookAuth extends Activity {
                 }
 
                 @Override
-                public void onFacebookError(FacebookError error)
-                {
+                public void onFacebookError(FacebookError error) {
                     System.out.println("FB AUTH ERROR: " + error.getMessage());
                     goToNextActivity();
                 }
@@ -81,29 +72,22 @@ public class FacebookAuth extends Activity {
                     goToNextActivity();
                 }
             });
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e);
             Toast.makeText(this, "Problem connecting to server with FB registration. please try again..", Toast.LENGTH_LONG).show();
             goToNextActivity();
-        }
-        catch(AssertionError a)
-        {
+        } catch (AssertionError a) {
             System.out.println(a);
             Toast.makeText(this, "Problem connecting to server with FB registration. please try again..", Toast.LENGTH_LONG).show();
             goToNextActivity();
         }
     }
 
-    private void goToNextActivity(){
+    private void goToNextActivity() {
 
-        if(getIntent().getExtras() != null && getIntent().getExtras().containsKey(Storage.FB_LOGIN))
-        {
+        if (getIntent().getExtras() != null && getIntent().getExtras().containsKey(Storage.FB_LOGIN)) {
             m_Intent = new Intent(FacebookAuth.this, ProfileActivity.class);
-        }
-        else if(getIntent().getExtras() != null && getIntent().getExtras().containsKey(Storage.REGISTER_FB))
-        {
+        } else if (getIntent().getExtras() != null && getIntent().getExtras().containsKey(Storage.REGISTER_FB)) {
             m_Intent = new Intent(FacebookAuth.this, RegisterActivity.class);
             m_Intent.putExtra(Storage.FB_AUTH, true);
         }

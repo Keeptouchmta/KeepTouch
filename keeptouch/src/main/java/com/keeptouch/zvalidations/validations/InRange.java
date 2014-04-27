@@ -59,7 +59,7 @@ public class InRange extends BaseValidation {
         } catch (NumberFormatException ignored) {
         }
         return isValid ?
-            ValidationResult.buildSuccess(textView)
-            : ValidationResult.buildFailed(textView, mContext.getString(R.string.zvalidations_not_in_range, mMin, mMax));
+                ValidationResult.buildSuccess(textView)
+                : ValidationResult.buildFailed(textView, mContext.getString(R.string.zvalidations_not_in_range, mMin, mMax));
     }
 }

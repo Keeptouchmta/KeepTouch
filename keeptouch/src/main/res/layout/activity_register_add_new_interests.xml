@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@id/layout_window_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/AddNewInterest"
+            android:id="@+id/ChooseYourInterestsLable"
+            android:textSize="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_search"
+            android:textSize="35dp"
+            android:hint="@string/NewInterestName"
+            android:layout_below="@+id/ChooseYourInterestsLable"
+            android:layout_alignLeft="@+id/ChooseYourInterestsLable"
+            android:layout_alignStart="@+id/ChooseYourInterestsLable" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Add"
+            android:id="@+id/buttonAddNewInterest"
+            android:textSize="25dp"
+            android:layout_below="@+id/radioButtonOther"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:id="@+id/buttonContinue"
+            android:textSize="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/InterestType"
+            android:id="@+id/textView"
+            android:textSize="30dp"
+            android:layout_below="@id/action_search"
+            android:layout_alignLeft="@+id/radioButtonMusic" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Music"
+            android:id="@+id/radioButtonMusic"
+            android:textSize="25dp"
+            android:layout_below="@id/action_search"
+            android:layout_alignLeft="@id/action_search"
+            android:layout_marginTop="47dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sport"
+            android:id="@+id/radioButtonSport"
+            android:layout_alignStart="@+id/radioButtonMusic"
+            android:textSize="25dp"
+            android:layout_below="@+id/radioButtonMusic"
+            android:layout_alignLeft="@id/action_search" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:id="@+id/radioButtonOther"
+            android:layout_alignStart="@+id/radioButtonSport"
+            android:checked="false"
+            android:textSize="25dp"
+            android:layout_below="@+id/radioButtonSport"
+            android:layout_alignLeft="@id/action_search" />
+
+    </RelativeLayout>
+</LinearLayout>

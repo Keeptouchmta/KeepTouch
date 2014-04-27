@@ -13,16 +13,17 @@ import java.util.Calendar;
  * Created by tgoldberg on 4/17/2014.
  */
 
-public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
+public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
     TimePickerDialog.OnTimeSetListener m_OnTimeSet;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-    // Use the current time as the default values for the picker
+        // Use the current time as the default values for the picker
         final Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
 
-    // Create a new instance of TimePickerDialog and return it
+        // Create a new instance of TimePickerDialog and return it
         return new TimePickerDialog(getActivity(), this, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
     }
@@ -30,6 +31,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     public void setCallBack(TimePickerDialog.OnTimeSetListener ontime) {
         m_OnTimeSet = ontime;
     }
+
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 

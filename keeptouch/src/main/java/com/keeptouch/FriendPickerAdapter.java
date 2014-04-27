@@ -23,15 +23,16 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
     Filter friendNameFilter;
     Context m_Context;
     private Map<String, FriendBean> m_KeepTouchFriendsOriginal = new HashMap<String, FriendBean>();
-    private ArrayList<String> m_KeepTouchFriendsCurrent ;
+    private ArrayList<String> m_KeepTouchFriendsCurrent;
     private ArrayList<FriendBean> m_KeepTouchChosenFriend = new ArrayList<FriendBean>();
+
     public FriendPickerAdapter(Context context, int textViewResourceId,
-                         ArrayList<FriendBean> keepTouchFriends) {
+                               ArrayList<FriendBean> keepTouchFriends) {
         super(context, textViewResourceId, keepTouchFriends);
         m_KeepTouchFriendsCurrent = new ArrayList<String>();
         initFriendMap(keepTouchFriends);
         initFriendArray(keepTouchFriends);
-        this.m_Context =context;
+        this.m_Context = context;
         friendNameFilter = createFilter();
     }
 
@@ -53,7 +54,7 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults filterResults = new FilterResults();
                 ArrayList<String> tempList = new ArrayList<String>();
-                if(constraint != null && m_KeepTouchFriendsOriginal !=null) {
+                if (constraint != null && m_KeepTouchFriendsOriginal != null) {
                     for (FriendBean friendBean : m_KeepTouchFriendsOriginal.values()) {
                         if (friendBean.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
                             tempList.add(friendBean.getName());
@@ -120,12 +121,9 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
             public void onClick(View view) {
                 friendBean.setSelected(holder.checkBox.isChecked());
 
-                if(!holder.checkBox.isChecked() && m_KeepTouchChosenFriend.contains(friendBean))
-                {
+                if (!holder.checkBox.isChecked() && m_KeepTouchChosenFriend.contains(friendBean)) {
                     m_KeepTouchChosenFriend.remove(friendBean);
-                }
-                else if (holder.checkBox.isChecked())
-                {
+                } else if (holder.checkBox.isChecked()) {
                     m_KeepTouchChosenFriend.add(friendBean);
                 }
             }
@@ -134,11 +132,9 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
         return convertView;
     }
 
-    public ArrayList<FriendBean> getKeepTouchChosenFriends()
-    {
+    public ArrayList<FriendBean> getKeepTouchChosenFriends() {
         return m_KeepTouchChosenFriend;
     }
-
 
 
     @Override

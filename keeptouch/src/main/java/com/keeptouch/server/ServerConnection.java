@@ -32,8 +32,7 @@ public class ServerConnection {
     /**
      * Private constructor to disallow creation of instances from outside
      */
-    private ServerConnection()
-    {
+    private ServerConnection() {
     }
 
     public LoginActivity.ConfirmUserResult Login(String email, String passsword) {
@@ -48,25 +47,19 @@ public class ServerConnection {
      * @return a valid facebook Connection object
      * and also create an asyncFacebook object to keep
      */
-    public static Facebook GetFacebookConnection()
-    {
-        if (m_Facebook == null)
-        {
-            synchronized (m_Instance)
-            {
-                if (m_Facebook == null)
-                {
+    public static Facebook GetFacebookConnection() {
+        if (m_Facebook == null) {
+            synchronized (m_Instance) {
+                if (m_Facebook == null) {
                     m_Facebook = new Facebook(Storage.FB_APP_ID);
                     String access_token = Storage.fetchString("access_token");
                     long expires = Storage.fetchLong("access_expires");
 
-                    if(access_token != null)
-                    {
+                    if (access_token != null) {
                         m_Facebook.setAccessToken(access_token);
                     }
 
-                    if(expires != 0)
-                    {
+                    if (expires != 0) {
                         m_Facebook.setAccessExpires(expires);
                     }
 
@@ -78,16 +71,14 @@ public class ServerConnection {
         return m_Facebook;
     }
 
-    public static AsyncFacebookRunner GetFacebookAsyncRunner()
-    {
+    public static AsyncFacebookRunner GetFacebookAsyncRunner() {
         return m_AsyncFacebook;
     }
 
     /**
      * @return the single instance of the server connection
      */
-    public static ServerConnection getConnection()
-    {
+    public static ServerConnection getConnection() {
         return m_Instance;
     }
 
@@ -101,22 +92,21 @@ public class ServerConnection {
     /**
      * Set a context. Will be MainActivity or PollService, depending on the scenario of startup
      */
-    public void SetContext(Context i_Context)
-    {
+    public void SetContext(Context i_Context) {
         m_Context = i_Context;
     }
 
-    public void SetInitialDetails(String email, String password,Context i_Context) {
+    public void SetInitialDetails(String email, String password, Context i_Context) {
 
     }
 
     /**
      * Method for updating the user details for the first time.
+     *
      * @return true if successfully received user details.
      * if not, services will shutdown until user tries to login again
      */
-    public Boolean UpdateUserInitially()
-    {
+    public Boolean UpdateUserInitially() {
         return true;
     }
 
@@ -128,8 +118,7 @@ public class ServerConnection {
     /**
      * Stop all services in App
      */
-    public void StopServices()
-    {
+    public void StopServices() {
 
     }
 
@@ -138,7 +127,7 @@ public class ServerConnection {
     }
 
     public RegisterActivity.RegisterUserResult RegisterNewUser(String m_email, String m_passsword, Integer o_UserId) {
-        o_UserId =0;
+        o_UserId = 0;
         return RegisterActivity.RegisterUserResult.Success;
     }
 
@@ -148,20 +137,20 @@ public class ServerConnection {
 
     /**
      * Get facebook Id of the specified user
+     *
      * @return facebook Id for user
      */
-    public String GetFbId(int i_UserId)
-    {
+    public String GetFbId(int i_UserId) {
         return ServerConnection.NO_FB_ID;
     }
 
     /**
-     *  Register a new user via FB
+     * Register a new user via FB
+     *
      * @return userId generated
      */
-    public RegisterActivity.RegisterUserResult RegisterNewUserViaFb(String i_FacebookId , Integer o_UserId)
-    {
-        o_UserId =0;
+    public RegisterActivity.RegisterUserResult RegisterNewUserViaFb(String i_FacebookId, Integer o_UserId) {
+        o_UserId = 0;
         return RegisterActivity.RegisterUserResult.Success;
     }
 
@@ -176,23 +165,19 @@ public class ServerConnection {
     public void GetProfileDetails(int m_profileId) {
     }
 
-    public boolean AddNewEvent()
-    {
+    public boolean AddNewEvent() {
         return true;
     }
 
-    public boolean UpdateEvent()
-    {
+    public boolean UpdateEvent() {
         return true;
     }
 
-    public void GetEventDetails()
-    {
+    public void GetEventDetails() {
 
     }
 
-    public void GetPlaceDetails()
-    {
+    public void GetPlaceDetails() {
 
     }
 
@@ -209,13 +194,11 @@ public class ServerConnection {
      * get the places nearby by the radius requested around i_Location parameter
      * return the places in the output parameter o_Places which hold users\location
      */
-    public ArrayList<PlaceLocation> getPlacesNearBy(int i_RadiusInMeters, Location i_Location)
-    {
+    public ArrayList<PlaceLocation> getPlacesNearBy(int i_RadiusInMeters, Location i_Location) {
         return null;
     }
 
-    public ArrayList<PlaceLocation> getPlaceAccordingToCharSequence(CharSequence constraint )
-    {
+    public ArrayList<PlaceLocation> getPlaceAccordingToCharSequence(CharSequence constraint) {
         return null;
     }
 }

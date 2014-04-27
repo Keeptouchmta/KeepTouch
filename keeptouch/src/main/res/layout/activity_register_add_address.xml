@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@id/layout_window_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/AddYourAddress"
+            android:id="@+id/LableAddYourAddress"
+            android:textSize="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Current Location"
+            android:id="@+id/buttonAddNewInterest"
+            android:textSize="32dp"
+            android:layout_below="@+id/buttonSearchLocation"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_marginTop="113dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/LetsGetStarted"
+            android:id="@+id/buttonContinue"
+            android:textSize="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:id="@+id/buttonSearchLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_location_pin"
+            android:background="@null"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignLeft="@+id/buttonContinue"
+            android:layout_alignStart="@+id/buttonContinue"
+            android:layout_marginLeft="45dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Search For Your Address:"
+            android:id="@+id/textView"
+            android:textSize="35dp"
+            android:layout_marginTop="55dp"
+            android:layout_below="@+id/LableAddYourAddress"
+            android:layout_alignLeft="@+id/LableAddYourAddress"
+            android:layout_alignStart="@+id/LableAddYourAddress" />
+
+    </RelativeLayout>
+</LinearLayout>

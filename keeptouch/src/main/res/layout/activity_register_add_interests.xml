@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@id/layout_window_container">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/ChooseYourInterests"
+            android:id="@id/LablaChooseYourInterestId"
+            android:textSize="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/DidntFindInterestLable"
+            android:layout_alignStart="@+id/DidntFindInterestLable" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action_search"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/LablaChooseYourInterestId"
+            android:textSize="35dp"
+            android:hint="@string/Search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/DidntFindInterst"
+            android:id="@+id/DidntFindInterestLable"
+            android:textSize="32dp"
+            android:layout_below="@+id/action_search"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:id="@+id/buttonContinue"
+            android:textSize="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/AddNewInterest"
+            android:id="@+id/textView"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/DidntFindInterestLable"
+            android:layout_alignStart="@+id/DidntFindInterestLable" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/btn_plus"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/buttonContinue" />
+
+    </RelativeLayout>
+</LinearLayout>

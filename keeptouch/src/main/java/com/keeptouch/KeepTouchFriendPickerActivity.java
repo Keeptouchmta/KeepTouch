@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  * Created by tgoldberg on 4/15/2014.
  */
-public class KeepTouchFriendPickerActivity extends ListActivity  implements Serializable{
+public class KeepTouchFriendPickerActivity extends ListActivity implements Serializable {
     //ArrayList that will hold the original Data
     ArrayList<FriendBean> m_KeepTouchFriend;
     ArrayList<FriendBean> m_keepTouchChosenFriend;
@@ -43,10 +43,10 @@ public class KeepTouchFriendPickerActivity extends ListActivity  implements Seri
             @Override
             public void onClick(View v) {
                 setChosenKeepTouchFriends();
-                Intent intent =  new Intent(KeepTouchFriendPickerActivity.this,AddEditEventActivity.class);
+                Intent intent = new Intent(KeepTouchFriendPickerActivity.this, AddEditEventActivity.class);
                 intent.putExtra(Storage.KEEPTOUCH_FRIENDS, m_keepTouchChosenFriend);
-                setResult(Activity.RESULT_OK,intent);
-                ((Activity)KeepTouchFriendPickerActivity.this).finish();
+                setResult(Activity.RESULT_OK, intent);
+                ((Activity) KeepTouchFriendPickerActivity.this).finish();
             }
 
         });
@@ -105,14 +105,12 @@ public class KeepTouchFriendPickerActivity extends ListActivity  implements Seri
         setListAdapter(m_FriendPickerAdapter);
     }
 
-    private void setChosenKeepTouchFriends()
-    {
-         m_keepTouchChosenFriend =  m_FriendPickerAdapter.getKeepTouchChosenFriends();
+    private void setChosenKeepTouchFriends() {
+        m_keepTouchChosenFriend = m_FriendPickerAdapter.getKeepTouchChosenFriends();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.friend_picker, menu);
         return true;

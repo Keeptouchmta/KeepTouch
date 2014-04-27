@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_horizontal"
-    android:focusable="true" >
+    android:focusable="true">
 
     <AutoCompleteTextView
         android:id="@+id/search_box"
@@ -16,7 +16,6 @@
         android:inputType="textAutoComplete|textAutoCorrect"
         android:popupBackground="@color/white"
         android:showAsAction="ifRoom|collapseActionView"
-        android:textColor="#FFFFFF" >
-    </AutoCompleteTextView>
+        android:textColor="#FFFFFF"></AutoCompleteTextView>
 
 </RelativeLayout>

@@ -51,7 +51,7 @@ public class IsPositiveInteger extends BaseValidation {
         EditText textView = field.getTextView();
         boolean isValid = textView.getText().toString().matches(POSITIVE_INT_PATTERN);
         return isValid ?
-            ValidationResult.buildSuccess(textView)
-            : ValidationResult.buildFailed(textView, mContext.getString(R.string.zvalidations_not_positive_integer));
+                ValidationResult.buildSuccess(textView)
+                : ValidationResult.buildFailed(textView, mContext.getString(R.string.zvalidations_not_positive_integer));
     }
 }

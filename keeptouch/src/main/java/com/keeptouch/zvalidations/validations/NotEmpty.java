@@ -49,7 +49,7 @@ public class NotEmpty extends BaseValidation {
     public ValidationResult validate(Field field) {
         boolean isValid = !TextUtils.isEmpty(field.getTextView().getText());
         return isValid ?
-            ValidationResult.buildSuccess(field.getTextView())
-            : ValidationResult.buildFailed(field.getTextView(), mContext.getString(R.string.zvalidations_empty));
+                ValidationResult.buildSuccess(field.getTextView())
+                : ValidationResult.buildFailed(field.getTextView(), mContext.getString(R.string.zvalidations_empty));
     }
 }

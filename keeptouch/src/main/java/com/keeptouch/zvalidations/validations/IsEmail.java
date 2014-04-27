@@ -37,8 +37,8 @@ import com.keeptouch.zvalidations.ValidationResult;
 public class IsEmail extends BaseValidation {
 
     private static final String EMAIL_PATTERN =
-        "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     private IsEmail(Context context) {
         super(context);
@@ -53,7 +53,7 @@ public class IsEmail extends BaseValidation {
         EditText textView = field.getTextView();
         boolean isValid = textView.getText().toString().matches(EMAIL_PATTERN);
         return isValid ?
-            ValidationResult.buildSuccess(textView)
-            : ValidationResult.buildFailed(textView, mContext.getString(R.string.zvalidations_not_email));
+                ValidationResult.buildSuccess(textView)
+                : ValidationResult.buildFailed(textView, mContext.getString(R.string.zvalidations_not_email));
     }
 }
