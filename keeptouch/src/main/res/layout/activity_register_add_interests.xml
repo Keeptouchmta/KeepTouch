@@ -22,18 +22,6 @@
             android:layout_alignLeft="@+id/DidntFindInterestLable"
             android:layout_alignStart="@+id/DidntFindInterestLable" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/action_search"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/LablaChooseYourInterestId"
-            android:textSize="35dp"
-            android:hint="@string/Search" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +29,7 @@
             android:text="@string/DidntFindInterst"
             android:id="@+id/DidntFindInterestLable"
             android:textSize="32dp"
-            android:layout_below="@+id/action_search"
+            android:layout_above="@+id/buttonAddNewInterest"
             android:layout_centerHorizontal="true" />
 
         <Button
@@ -65,13 +53,25 @@
             android:layout_alignStart="@+id/DidntFindInterestLable" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/buttonAddNewInterest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             android:src="@drawable/btn_plus"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/buttonContinue" />
+
+        <AutoCompleteTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/autoCompleteSearch"
+            android:layout_below="@id/LablaChooseYourInterestId"
+            android:layout_alignLeft="@id/LablaChooseYourInterestId"
+            android:layout_alignStart="@id/LablaChooseYourInterestId"
+            android:layout_alignRight="@+id/DidntFindInterestLable"
+            android:layout_alignEnd="@+id/DidntFindInterestLable"
+            android:hint="Search..."
+            android:textSize="30dp" />
 
     </RelativeLayout>
 </LinearLayout>

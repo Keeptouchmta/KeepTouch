@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context=".login.RegisterAddAddressActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Set Current Location"
-            android:id="@+id/buttonAddNewInterest"
+            android:id="@+id/buttonSetCurrentLocation"
             android:textSize="32dp"
             android:layout_below="@+id/buttonSearchLocation"
             android:layout_alignLeft="@+id/textView"
@@ -36,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/LetsGetStarted"
-            android:id="@+id/buttonContinue"
+            android:id="@+id/buttonDone"
             android:textSize="25dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
@@ -49,8 +51,8 @@
             android:src="@drawable/btn_location_pin"
             android:background="@null"
             android:layout_alignBottom="@+id/textView"
-            android:layout_alignLeft="@+id/buttonContinue"
-            android:layout_alignStart="@+id/buttonContinue"
+            android:layout_alignLeft="@+id/buttonDone"
+            android:layout_alignStart="@+id/buttonDone"
             android:layout_marginLeft="45dp" />
 
         <TextView

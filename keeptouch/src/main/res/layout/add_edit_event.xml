@@ -121,13 +121,14 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/btnPlusInterests"
+            android:id="@+id/btnAddAttendees"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             android:src="@drawable/btn_plus"
-            android:layout_alignTop="@+id/linearLayoutInvites"
-            android:layout_toRightOf="@+id/linearLayoutInvites" />
+            android:layout_alignTop="@+id/txtInvite"
+            android:layout_toLeftOf="@+id/txtSetTime"
+            android:focusableInTouchMode="false" />
 
         <TextView
             android:layout_width="wrap_content"

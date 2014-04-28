@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string-array name="interest_options">
+        <item>Horse Riding</item>
+        <item>Cooking Cakes</item>
+        <item>Soccer</item>
+        <item>Painting</item>
+        <item>Playing Guitar</item>
+        <item>Playing Chess</item>
+        <item>Eating IceCream</item>
+        <item>Watch Movies</item>
+        ...
+    </string-array>
     <string name="app_name">Keep Touch</string>
     <string name="action_settings">Settings</string>
     <string name="add_new_event">Add new event</string>

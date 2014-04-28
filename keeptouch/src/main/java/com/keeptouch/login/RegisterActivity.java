@@ -73,8 +73,9 @@ public class RegisterActivity extends Activity {
                 if (m_Form.isValid()) {
                     new RegisterUserTask().execute(m_Email.getText().toString(),
                             m_Password.getText().toString(), m_verifyPassword.getText().toString());
+                    Intent m_Intent = new Intent(RegisterActivity.this, RegisterAddAddressActivity.class);
+                    startActivityForResult(m_Intent, 0);
                 }
-
             }
         });
 
@@ -117,7 +118,6 @@ public class RegisterActivity extends Activity {
                 saveString(USER_PASSWORD, m_Passsword, !COMMIT);
                 saveInt(USER_ID, m_UserId, COMMIT);
                 System.out.println("Register :" + m_Email);
-
             }
         }
 
