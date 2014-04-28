@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_search"
-        android:title="@string/action_search"
-        android:icon="@drawable/ic_action_search"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/action_search_location"
+        android:actionViewClass="android.widget.SearchView"
+        android:title="@string/action_location_picker"
+        android:icon="@android:drawable/ic_menu_search"
         android:showAsAction="ifRoom|collapseActionView"
-        android:actionViewClass="android.support.v7.widget.SearchView" />
+        yourapp:showAsAction="ifRoom|collapseActionView"
+        yourapp:actionViewClass="android.widget.SearchView"/>
+    <item
+        android:id="@+id/action_add_friend"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_accept"
+        android:title="Done"/>
+
 </menu>

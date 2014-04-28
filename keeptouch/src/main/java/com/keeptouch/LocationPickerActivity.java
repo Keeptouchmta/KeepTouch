@@ -175,7 +175,9 @@ public class LocationPickerActivity extends Activity {
                     intent.putExtra(Storage.CHOSEN_LOCATION, m_ChosenPlace);
                     setResult(Activity.RESULT_OK, intent);
                     ((Activity) LocationPickerActivity.this).finish();
-                } else {
+                }
+                else
+                {
                     Toast.makeText(this, R.string.no_place_chosen, Toast.LENGTH_SHORT)
                             .show();
                 }

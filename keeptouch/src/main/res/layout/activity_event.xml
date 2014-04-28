@@ -3,8 +3,8 @@
     android:id="@+id/layout_window_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".EventScreen">
-
+    tools:context=".EventScreen"
+    >
     <ImageView
         android:id="@+id/imgEventPic"
         android:layout_width="fill_parent"

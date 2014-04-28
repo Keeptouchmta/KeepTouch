@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProfileActivity extends MasterActivity {
-
+public class ProfileActivity extends MasterActivity
+{
     Activity thisActivity = this;
     private int m_profileId;
     private ServerConnection m_ServerConnection;
@@ -24,7 +24,9 @@ public class ProfileActivity extends MasterActivity {
         setContentView(R.layout.profile);
         Intent m_Intent = getIntent();
         m_profileId = m_Intent.getIntExtra("profileUserId", -1);
-        if (m_profileId != -1) {
+
+        if(m_profileId != -1)
+        {
             m_ServerConnection = ServerConnection.getConnection();
             m_ServerConnection.GetProfileDetails(m_profileId);
 
@@ -60,7 +62,5 @@ public class ProfileActivity extends MasterActivity {
         //drawablesInterests.add(R.drawable.dogs);
         //SetFaceListWithoutLinks(linearLayoutInterests, drawablesInterests);
     }
-
-
 }
 

@@ -45,7 +45,7 @@ public class AddEditEventActivity extends FragmentActivity {
     private Form m_Form;
     private List<Integer> m_FriendDrawables;
     private ViewGroup m_LinearLayoutAttendies;
-    private ArrayList<FriendBean> m_ChosenKeepTouchAttendies;
+    private ArrayList<FriendBean> m_KeepTouchAttendies = new ArrayList<FriendBean>();
     private int REQUEST_OK = 0;
     Button m_DatePickerShowDialogButton = null;
     private int m_Hour;
@@ -154,7 +154,7 @@ public class AddEditEventActivity extends FragmentActivity {
     {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.KEEPTOUCH_FRIENDS))
         {
-           m_ChosenKeepTouchAttendies = (ArrayList<FriendBean>) data.getSerializableExtra(Storage.KEEPTOUCH_FRIENDS);
+            ArrayList<FriendBean> m_ChosenKeepTouchAttendies = (ArrayList<FriendBean>) data.getSerializableExtra(Storage.KEEPTOUCH_FRIENDS);
 
             if(m_FriendDrawables == null)
             {
@@ -163,13 +163,17 @@ public class AddEditEventActivity extends FragmentActivity {
 
             for (FriendBean keepTouchFriend : m_ChosenKeepTouchAttendies)
             {
-                if(!m_FriendDrawables.contains(keepTouchFriend.getPhoto()))
+                if(!m_KeepTouchAttendies.contains(keepTouchFriend))
                 {
-                    m_FriendDrawables.add(keepTouchFriend.getPhoto());
+                    m_KeepTouchAttendies.add(keepTouchFriend);
                 }
             }
 
-            SetFaceList(m_LinearLayoutAttendies, m_FriendDrawables);
+            SetFaceList(m_LinearLayoutAttendies, m_KeepTouchAttendies);
+        }
+        else if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.CHOSEN_LOCATION))
+        {
+
         }
         else if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.CHOSEN_LOCATION))
         {
@@ -205,20 +209,22 @@ public class AddEditEventActivity extends FragmentActivity {
         }
     };
 
-    public void SetFaceList(ViewGroup layoutToSetInto, List<Integer> drawables)
+    public void SetFaceList(ViewGroup layoutToSetInto, List<FriendBean> keepTouchChosenFriend)
     {
         LinearLayout.LayoutParams layoutParamsWithNoMargins = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(15, 0, 0, 0);
         int index = 0;
-        for(Iterator<Integer> drawable = drawables.iterator(); drawable.hasNext(); )
+        layoutToSetInto.removeAllViews();
+
+        for(final FriendBean friendBean : keepTouchChosenFriend )
         {
             ImageButton faceButton = new ImageButton(thisActivity);
             if(index == 0)
                 faceButton.setLayoutParams(layoutParamsWithNoMargins);
             else
                 faceButton.setLayoutParams(layoutParams);
-            faceButton.setImageDrawable(thisActivity.getResources().getDrawable(drawable.next()));
+            faceButton.setImageDrawable(thisActivity.getResources().getDrawable(friendBean.getPhoto()));
             faceButton.setPadding(0, 0, 0, 0);
             faceButton.setOnClickListener(new View.OnClickListener() {
 
@@ -226,10 +232,12 @@ public class AddEditEventActivity extends FragmentActivity {
                 public void onClick(View arg0) {
 
                     Intent intent = new Intent(thisActivity, ProfileActivity.class);
+                    intent.putExtra(Storage.USER_ID,friendBean.getUserId());
                     startActivity(intent);
                 }
 
             });
+
             layoutToSetInto.addView(faceButton);
             index++;
 

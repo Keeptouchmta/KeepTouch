@@ -104,7 +104,6 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
             convertView = mInflater.inflate(R.layout.friend_list_item, null);
             holder = new ViewHolder();
             holder.name = (TextView) convertView.findViewById(R.id.name);
-            holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkBox);
             holder.friendPhoto = (ImageView) convertView.findViewById(R.id.photo);
             convertView.setTag(holder);
         } else {
@@ -114,28 +113,12 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
         holder.name.setText(friendBean.getName());
         holder.friendPhoto.setImageResource(friendBean.getPhoto());
 
-        holder.checkBox.setChecked(Boolean.TRUE.equals(friendBean.getSelected()));
-
-        holder.checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                friendBean.setSelected(holder.checkBox.isChecked());
-
-                if (!holder.checkBox.isChecked() && m_KeepTouchChosenFriend.contains(friendBean)) {
-                    m_KeepTouchChosenFriend.remove(friendBean);
-                } else if (holder.checkBox.isChecked()) {
-                    m_KeepTouchChosenFriend.add(friendBean);
-                }
-            }
-        });
-
         return convertView;
     }
 
     public ArrayList<FriendBean> getKeepTouchChosenFriends() {
         return m_KeepTouchChosenFriend;
     }
-
 
     @Override
     public Filter getFilter() {
@@ -146,14 +129,16 @@ public class FriendPickerAdapter extends ArrayAdapter<FriendBean> {
 class ViewHolder {
     ImageView friendPhoto;
     TextView name;
-    CheckBox checkBox;
 }
 
 class FriendBean implements Serializable {
+    private int userId;
     private int photo;
     private String name;
     private Boolean selected;
 
+    public int getUserId(){return userId;}
+    public void setUserId(int userId){this.userId = userId; }
     public int getPhoto() {
         return photo;
     }

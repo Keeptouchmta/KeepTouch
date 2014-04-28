@@ -10,6 +10,8 @@ public class Storage {
     public static final String CHOSEN_LOCATION = "chosenLocation";
     public static final String ADD_EVENT = "addEvent";
     public static final String EDIT_AVENT = "editEvent";
+    public static final String CHOSEN_FRIENDS = "chosenFriends";
+    public static final String FRIEND_PROFILE= "friendProfile";
     public static boolean COMMIT = true;
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String USER_ID = "userId";

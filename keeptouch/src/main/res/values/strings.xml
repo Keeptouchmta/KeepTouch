@@ -35,7 +35,7 @@
     <string name="myMapKey">AIzaSyCeNSDYa6_O0yVCnZgmR1TAHQtOnpHYoN4</string>
     <string name="password">Password</string>
     <string name="email">Email Address</string>
-    <string name="login_without_facebook">Login with Email</string>
+    <string name="login_without_facebook">Login In</string>
     <string name="ReTypePassword">Re-type password</string>
     <string name="select_location">Select Place</string>
     <string name="justUse">Just use</string>
@@ -52,6 +52,7 @@
     <string name="Add">Add</string>
     <string name="LetsGetStarted">Let\'s Get Started!</string>
     <string name="textSignUp">Sign UP</string>
-
+    <string name="dontHaveAnAccount">Dont Have An Account?</string>
+    <string name="no_friends_chosen">No friend chosen.</string>
 
 </resources>

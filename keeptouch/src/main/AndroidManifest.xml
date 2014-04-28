@@ -35,12 +35,14 @@
         <activity
             android:name="com.keeptouch.LocationPickerActivity"
             android:label="@string/app_name">
-
         </activity>
+
         <activity
             android:name="com.keeptouch.login.LoginActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name="com.keeptouch.KeepTouchFriendPickerActivity"
             android:label="@string/app_name"
@@ -53,7 +55,7 @@
             android:label="@string/app_name"></activity>
         <activity
             android:name="com.keeptouch.AddEditEventActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

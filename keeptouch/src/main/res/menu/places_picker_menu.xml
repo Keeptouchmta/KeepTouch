@@ -11,11 +11,11 @@
         yourapp:showAsAction="ifRoom|collapseActionView"
         yourapp:actionViewClass="android.widget.SearchView"
 
-        />
+         />
     <item
         android:id="@+id/action_add"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_add"
-        android:title="Add" />
+        android:icon="@drawable/ic_action_accept"
+        android:title="Done"/>
 </menu>

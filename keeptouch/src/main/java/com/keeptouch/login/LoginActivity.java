@@ -64,7 +64,7 @@ public class LoginActivity extends Activity {
         initFields();
         initValidationForm();
 
-        final Button buttonLogin = (Button) findViewById(id.buttonLogin);
+        final Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,12 +146,10 @@ public class LoginActivity extends Activity {
                 saveInt(USER_ID, m_UserId, COMMIT);
                 System.out.println("login :" + m_Email);
 
-                if (m_Extras != null) {
-                    Progress.dismiss(LoginActivity.this);
-                    m_Intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                    startActivity(m_Intent);
-                    ((Activity) LoginActivity.this).finish();
-                }
+                Progress.dismiss(LoginActivity.this);
+                m_Intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                startActivity(m_Intent);
+                ((Activity)LoginActivity.this).finish();
             }
         }
 
@@ -199,6 +197,7 @@ public class LoginActivity extends Activity {
                 if (m_AsyncFb != null) {
                     logoutFacebook();
                 }
+
                 Progress.dismiss(LoginActivity.this);
 
             }

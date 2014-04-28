@@ -3,41 +3,20 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@color/white">
-
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white">
-
-        <EditText
-            android:id="@+id/inputSearch"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Search friends..." />
-
-        <Button
-            android:id="@+id/buttonDone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-
-            android:text="@string/button_done" />
-    </LinearLayout>
-
+    android:background="@color/white"
+    >
     <ListView
-        android:id="@android:id/list"
+        android:id="@+id/friend_list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:divider="#ffcccccc"
         android:dividerHeight="4px"
         android:fastScrollEnabled="true"
         android:scrollbars="vertical"
-        android:listSelector="#99000000"
         android:cacheColorHint="#FFFFFF"
+        android:listSelector="@drawable/friend_item_selector"
         android:background="@color/white"
-        android:fillViewport="true" />
+        android:fillViewport="true"
+        android:clickable="true"
+        />
 </LinearLayout>

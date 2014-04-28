@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_action_secure"
         android:layout_below="@+id/textEmailAddress"
         android:layout_alignRight="@+id/imageButtonLoginWithFacebok"
         android:layout_alignLeft="@+id/imageButtonLoginWithFacebok" />
@@ -26,6 +27,7 @@
         android:layout_marginTop="115dp"
         android:hint="@string/email"
         android:ems="10"
+        android:drawableLeft="@drawable/ic_action_email"
         android:inputType="textEmailAddress"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/imageButtonLoginWithFacebok"
@@ -38,22 +40,9 @@
         android:id="@+id/imageButtonLoginWithFacebok"
         android:maxWidth="10dp"
         android:background="@drawable/active_600"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="26dp"
         android:layout_below="@+id/buttonLogin"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold"
-        android:id="@+id/buttonAddNewInterest"
-        android:layout_below="@+id/imageButtonLoginWithFacebok"
-        android:layout_alignRight="@+id/textPassword"
-        android:layout_alignEnd="@+id/textPassword"
-        android:layout_marginTop="37dp"
-        android:textSize="15dp"
-        android:clickable="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -62,8 +51,31 @@
         android:id="@+id/buttonLogin"
         android:layout_alignEnd="@id/imageButtonLoginWithFacebok"
         android:clickable="true"
+        android:layout_below="@+id/textPassword"
         android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
         android:layout_alignLeft="@+id/imageButtonLoginWithFacebok" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:id="@+id/textSignUp"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/imageButtonLoginWithFacebok"
+        android:layout_toRightOf="@+id/textDontHaveanAccount"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dontHaveAnAccount"
+        android:id="@+id/textDontHaveanAccount"
+        android:layout_marginLeft="33dp"
+        android:layout_alignBaseline="@+id/textSignUp"
+        android:layout_alignBottom="@+id/textSignUp"
+        android:layout_alignLeft="@+id/imageButtonLoginWithFacebok"
+        android:layout_alignStart="@+id/imageButtonLoginWithFacebok" />
 
 </RelativeLayout>
 
