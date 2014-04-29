@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
  * Created by tgoldberg on 4/11/2014.
  */
 public class Storage {
+    public static final String LOGIN = "login";
+    public static final String TYPE = "type";
     public static final String CHOSEN_LOCATION = "chosenLocation";
     public static final String ADD_EVENT = "addEvent";
     public static final String EDIT_AVENT = "editEvent";

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
-    <item android:id="@+id/action_search_location"
+    <item android:id="@+id/action_search_friend"
         android:actionViewClass="android.widget.SearchView"
-        android:title="@string/action_location_picker"
+        android:title="@string/action_friend_picker"
         android:icon="@android:drawable/ic_menu_search"
         android:showAsAction="ifRoom|collapseActionView"
         yourapp:showAsAction="ifRoom|collapseActionView"

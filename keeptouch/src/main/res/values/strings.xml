@@ -9,7 +9,6 @@
         <item>Playing Chess</item>
         <item>Eating IceCream</item>
         <item>Watch Movies</item>
-        ...
     </string-array>
     <string name="app_name">Keep Touch</string>
     <string name="action_settings">Settings</string>

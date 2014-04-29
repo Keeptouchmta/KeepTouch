@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class KeepTouchFriendPickerActivity extends Activity  implements Serializable{
     //ArrayList that will hold the original Data
     ArrayList<FriendBean> m_KeepTouchFriend;
-    ArrayList<FriendBean> m_keepTouchChosenFriend = new  ArrayList<FriendBean>();
+    ArrayList<FriendBean> m_keepTouchChosenFriend;
     LayoutInflater inflater;
     EditText m_InputSearch;
     FriendPickerAdapter m_FriendPickerAdapter;
@@ -50,12 +50,14 @@ public class KeepTouchFriendPickerActivity extends Activity  implements Serializ
 
         m_ListView = (ListView) findViewById(R.id.friend_list);
         m_ListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
+        m_keepTouchChosenFriend = new  ArrayList<FriendBean>();
         m_ListView.setItemsCanFocus(false);
         m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                m_keepTouchChosenFriend.add ((FriendBean)m_ListView.getItemAtPosition(position));
+                if(!(m_keepTouchChosenFriend.contains((FriendBean)m_ListView.getItemAtPosition(position)))){
+                    m_keepTouchChosenFriend.add ((FriendBean)m_ListView.getItemAtPosition(position));
+                }
             }
         });
 
@@ -96,10 +98,9 @@ public class KeepTouchFriendPickerActivity extends Activity  implements Serializ
     {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.friend_picker, menu);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search_location).getActionView();
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search_friend).getActionView();
         int searchPlateId = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         EditText searchPlate = (EditText) searchView.findViewById(searchPlateId);
-        searchPlate.setHint("Search Place..");
         searchPlate.addTextChangedListener(new TextWatcher() {
 
             @Override

@@ -98,16 +98,6 @@ public class LocationPickerActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 m_ChosenPlace = (PlaceLocation) m_ListView.getItemAtPosition(position);
                 showPlaceOnMap(m_ChosenPlace);
-//                m_ChoosePlaceItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem menuItem) {
-//                        Intent intent = new Intent(LocationPickerActivity.this, AddEditEventActivity.class);
-//                        intent.putExtra(Storage.CHOSEN_LOCATION, m_ChosenPlace);
-//                        setResult(Activity.RESULT_OK, intent);
-//                        ((Activity) LocationPickerActivity.this).finish();
-//                        return true;
-//                    }
-//                });
             }
         });
 

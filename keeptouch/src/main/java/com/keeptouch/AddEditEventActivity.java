@@ -19,6 +19,7 @@ import android.widget.TimePicker;
 import com.keeptouch.Utils.DatePickerFragment;
 import com.keeptouch.Utils.Storage;
 import com.keeptouch.Utils.TimePickerFragment;
+import com.keeptouch.location.PlaceLocation;
 import com.keeptouch.zvalidations.Field;
 import com.keeptouch.zvalidations.Form;
 import com.keeptouch.zvalidations.TextViewValidationFailedRenderer;
@@ -45,13 +46,14 @@ public class AddEditEventActivity extends FragmentActivity {
     private Form m_Form;
     private List<Integer> m_FriendDrawables;
     private ViewGroup m_LinearLayoutAttendies;
-    private ArrayList<FriendBean> m_KeepTouchAttendies = new ArrayList<FriendBean>();
+    private ArrayList<FriendBean> m_KeepTouchAttendies;
     private int REQUEST_OK = 0;
     Button m_DatePickerShowDialogButton = null;
     private int m_Hour;
     private int m_Minute;
     private Date m_Date=new Date();
     private boolean isPrivate = false;
+    private PlaceLocation m_ChosenPlace;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -154,31 +156,46 @@ public class AddEditEventActivity extends FragmentActivity {
     {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.KEEPTOUCH_FRIENDS))
         {
-            ArrayList<FriendBean> m_ChosenKeepTouchAttendies = (ArrayList<FriendBean>) data.getSerializableExtra(Storage.KEEPTOUCH_FRIENDS);
+           addNewInvites(data);
+        }
+        else if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.CHOSEN_LOCATION))
+        {
+            m_ChosenPlace = (PlaceLocation)data.getSerializableExtra(Storage.CHOSEN_LOCATION);
+        }
+    }
 
-            if(m_FriendDrawables == null)
-            {
-                m_FriendDrawables = new ArrayList<Integer>();
-            }
+    private void addNewInvites(Intent data) {
+        ArrayList<FriendBean> m_ChosenKeepTouchAttendies = (ArrayList<FriendBean>) data.getSerializableExtra(Storage.KEEPTOUCH_FRIENDS);
 
-            for (FriendBean keepTouchFriend : m_ChosenKeepTouchAttendies)
+        if(m_KeepTouchAttendies == null) {
+            m_KeepTouchAttendies = new ArrayList<FriendBean>();
+        }
+
+        boolean isContainfriend = false;
+
+        for (FriendBean keepTouchFriend : m_ChosenKeepTouchAttendies)
+        {
+            for (FriendBean keepTouchAttendies : m_KeepTouchAttendies)
             {
-                if(!m_KeepTouchAttendies.contains(keepTouchFriend))
+                if(keepTouchAttendies.getName().equals(keepTouchFriend.getName()))
                 {
-                    m_KeepTouchAttendies.add(keepTouchFriend);
+                    isContainfriend = true;
+                    break;
                 }
             }
 
-            SetFaceList(m_LinearLayoutAttendies, m_KeepTouchAttendies);
-        }
-        else if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.CHOSEN_LOCATION))
-        {
+            if(!isContainfriend)
+            {
+                m_KeepTouchAttendies.add(keepTouchFriend);
+            }
+            else
+            {
+                isContainfriend =  false;
+            }
 
         }
-        else if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_OK && data.hasExtra(Storage.CHOSEN_LOCATION))
-        {
 
-        }
+        SetFaceList(m_LinearLayoutAttendies, m_KeepTouchAttendies);
     }
 
     private void showDatePicker() {

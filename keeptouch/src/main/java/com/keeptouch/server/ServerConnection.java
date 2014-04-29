@@ -10,6 +10,10 @@ import com.keeptouch.location.PlaceLocation;
 import com.keeptouch.login.LoginActivity;
 import com.keeptouch.login.RegisterActivity;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -17,8 +21,10 @@ import java.util.Hashtable;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
@@ -33,6 +39,12 @@ import com.google.android.maps.GeoPoint;
  * Created by tgoldberg on 4/11/2014.
  */
 public class ServerConnection {
+    private static final String SERVER_IP="1.1.1.1";
+    private static final String PORT=":80";
+    private static final String PATH="/KeepTouch/Server";
+    private static final String PREFIX="http://";
+    private static final String URL=PREFIX+SERVER_IP+PORT+PATH;
+
     public static final int NO_SUCH_USER = -2;
     public static final int USER_EXITS = -1;
     public static final String NO_FB_ID = "noFbId";
@@ -51,7 +63,30 @@ public class ServerConnection {
     }
 
     public LoginActivity.ConfirmUserResult Login(String email, String passsword) {
-        return LoginActivity.ConfirmUserResult.Success;
+
+        LoginActivity.ConfirmUserResult isLoginSuccessful = LoginActivity.ConfirmUserResult.Success;
+        RequestBuilder requestBuilder = new RequestBuilder(Storage.LOGIN);
+        requestBuilder.addParameter(Storage.USER_EMAIL,email);
+        requestBuilder.addParameter(Storage.USER_PASSWORD,passsword);
+
+        try
+        {
+            JSONObject jsonObject = new JSONObject(postData(requestBuilder.getNameValuePairs()));
+            int userId = jsonObject.getInt(Storage.USER_ID);
+            m_UserId = userId;
+
+            if(m_UserId != -1)
+            {
+                isLoginSuccessful = LoginActivity.ConfirmUserResult.Failed;
+            }
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            isLoginSuccessful = LoginActivity.ConfirmUserResult.Failed;
+        }
+
+        return isLoginSuccessful;
     }
 
     public int getLocalUserId() {
@@ -215,5 +250,35 @@ public class ServerConnection {
 
     public ArrayList<PlaceLocation> getPlaceAccordingToCharSequence(CharSequence constraint) {
         return null;
+    }
+
+    private String postData(ArrayList<NameValuePair> data)
+    {
+        String line = "";
+        StringBuilder builder = new StringBuilder();
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpPost httpPost = new HttpPost(URL);
+
+        try
+        {
+            UrlEncodedFormEntity form = new UrlEncodedFormEntity(data,"UTF-8");
+            form.setContentEncoding(HTTP.UTF_8);
+            httpPost.setEntity(form);
+            HttpResponse httpResponse = httpclient.execute(httpPost);
+
+            HttpEntity httpEntity = httpResponse.getEntity();
+            InputStream inputStream = httpEntity.getContent();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Cought exception in read Json");
+            e.printStackTrace();
+        }
+
+        return builder.toString();
     }
 }
